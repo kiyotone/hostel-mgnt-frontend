@@ -8,16 +8,17 @@ const Form = () => {
         name:"",
         email:"",
         password:'',
-        mobile:'',
+        phone:'',
+        role:'user'
 
     },
     validationSchema : basicSchema
 
   });
-  console.log(errors);
+  console.log(values);
 
   return (
-    <div className='bg-white w-[35rem] h-[40rem] rounded-md text-black'>
+    <div className='bg-white w-[35rem] h-[45rem] rounded-md text-black'>
 
             <div className='font-semibold text-[2rem] pt-4'>
                 Get Started
@@ -56,16 +57,43 @@ const Form = () => {
               </div>
 
 
+
+               {/* //? OYO style phone  */}
               
-              <div className='relative mt-[2rem]'>
-              <input placeholder=' ' value={values.mobile} onBlur={handleBlur} onChange={handleChange} type='text' id='mobile' className={`w-[25rem] h-[3rem] p-5 pl-[4rem] bg-gray-50 peer border-black placeholder-shown:border-gray ${errors.mobile && touched.mobile &&  "border-red-600 placeholder-shown:border-red-600"}-200 border rounded-full`}></input>
-              <label htmlFor='mobile' className='absolute bg-white top-[-.77rem] scale-[85%] text-black left-[6.28rem]  cursor-text ease-in-out
+              {/* <div className='relative mt-[2rem]'>
+              <input placeholder=' ' value={values.phone} onBlur={handleBlur} onChange={handleChange} type='text' id='phone' className={`w-[25rem] h-[3rem] p-5 pl-[4rem] bg-gray-50 peer border-black placeholder-shown:border-gray ${errors.phone && touched.phone &&  "border-red-600 placeholder-shown:border-red-600"}-200 border rounded-full`}></input>
+              <label htmlFor='phone' className='absolute bg-white top-[-.77rem] scale-[85%] text-black left-[6.28rem]  cursor-text ease-in-out
                 peer-focus:text-black peer-placeholder-shown:text-gray-400  peer-focus:bg-white
-              '>MOBILE</label>
-              <label htmlFor='mobile' className='absolute bg-white top-[.82rem] text-black left-[6.28rem]  cursor-text ease-in-out
+              '>PHONE</label> 
+
+              <label htmlFor='phone' className='absolute bg-white top-[.82rem] text-black left-[6.28rem]  cursor-text ease-in-out
               '>+977 </label>
-              <p className='pt-1 text-red-600'>{errors?.mobile}</p>
+              
+              <p className='pt-1 text-red-600'>{errors?.phone}</p>
+              </div> */}
+
+              {/* //? OUR style phone */} 
+
+              <div className='relative mt-[2rem]'>
+              <input placeholder=' ' value={values.phone} onBlur={handleBlur} onChange={handleChange} type='text' id='phone' className={`w-[25rem] h-[3rem] p-5 bg-gray-50 peer border-black placeholder-shown:border-gray-200 border rounded-full ${errors.phone && touched.phone &&  "border-red-600 placeholder-shown:border-red-600"}`}></input>
+              <label htmlFor='phone' className='absolute bg-white top-[-.77rem] scale-[85%] text-black left-[6.28rem] peer-placeholder-shown:top-[.82rem] cursor-text ease-in-out duration-100 
+                peer-focus:text-black peer-placeholder-shown:text-gray-400 peer-placeholder-shown:scale-[100%]
+                peer-focus:top-[-.77rem] peer-focus:bg-white peer-focus:scale-[85%]
+              '>PHONE</label>
+              <p className='pt-1 text-red-600'>{errors?.phone}</p>
               </div>
+              
+              <div class="relative mt-[2rem]">
+                  <select id="role" name='role' value={values.role} onChange={handleChange} onBlur={handleBlur} class="peer w-[10rem] h-[3rem] pl-5 bg-gray-50  border-black  border rounded-md">
+                    <option value="user">USER</option>
+                    <option value="admin">ADMIN</option>
+                    <option value="owner">OWNER</option>
+                  </select>
+                  <label class="absolute bg-white top-[-.77rem]  text-black  left-[15.28rem]">
+                    ROLE
+                  </label>
+                </div>
+
 
               <button type='submit' className='mt-[2rem] w-[25rem] bg-[#ff4a26] hover:bg-[#d33920] rounded-full text-white' onClick={()=>handleSubmit} >REGISTER NOW</button>
               
