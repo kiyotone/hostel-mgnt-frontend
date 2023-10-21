@@ -1,12 +1,22 @@
 import Navbar from './components/Navbar'
+import {BrowserRouter , Routes, Route} from 'react-router-dom'
+import Register from './pages/Register/index'
 
 function App() {
 
   return (
-  <div className='w-full h-full'>
-  <Navbar />
-  <h1> hello from client</h1>
-  </div>
+  <BrowserRouter>
+    <div className='w-full h-full'>
+      <Navbar />
+      <Routes >
+        
+        <Route path='/register' element={ <Register /> } />
+        
+      
+      </Routes>
+  
+    </div>
+  </BrowserRouter>
   )
 }
 

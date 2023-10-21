@@ -3,6 +3,7 @@ import {BiBuildingHouse} from 'react-icons/bi'
 import {HiMiniGlobeAsiaAustralia} from 'react-icons/hi2'
 import {FaUser} from 'react-icons/fa'
 import Search from './Search'
+import {Link} from 'react-router-dom'
 
 
 const Navbar = () => {
@@ -34,10 +35,10 @@ const Navbar = () => {
                     <div className=' left-[80rem] -ml-0.5 w-[.05rem] h-full bg-gray-300'></div>
                 </div>
 
-                <div className='flex items-center gap-x-2'>
+                <div className='flex items-center  gap-x-2'>
                 <FaUser className='text-xl'/>
                  
-                 <div>Login / Signup</div>
+                 <Link className='text-black cursor-pointer' to={'/register'} >Login / Signup</Link>
                 </div>
 
             </div>
