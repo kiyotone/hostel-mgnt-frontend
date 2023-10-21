@@ -1,13 +1,12 @@
-import './App.css'
-import Register from './pages/Register'
+import Navbar from './components/Navbar'
 
 function App() {
 
   return (
-  <>
-  <h1> </h1>
-  <Register />
-  </>
+  <div className='w-full h-full'>
+  <Navbar />
+  <h1> hello from client</h1>
+  </div>
   )
 }
 
