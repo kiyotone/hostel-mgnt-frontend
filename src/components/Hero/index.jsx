@@ -4,7 +4,7 @@ import Swiper from './Swiper'
 
 const Hero = () => {
   return (
-    <div className='w-full bg-white text-black'>
+    <div className='w-full bg-white flex flex-col items-center text-black'>
         
         <div className='w-full bg-gray-200 h-[7rem] flex items-center gap-x-[7rem] pl-20'>
             <div className='text-[2rem] font-semibold' >
