@@ -9,7 +9,7 @@ function App() {
       <h1> </h1>
       <Login />
       {/* <Card name="Boys Hostel" location="Kathmandu" price="15,000" /> */}
-      <Footer />
+      {/* <Footer /> */}
     </main>
   );
 }

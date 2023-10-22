@@ -27,7 +27,7 @@ const Form = () => {
             onBlur={handleBlur}
             onChange={handleChange}
             type="text"
-            id="phone"
+            id="email"
             className={`w-[25rem] h-[3rem] p-5 bg-gray-50 peer border-black placeholder-shown:border-gray-200 border rounded-full ${
               errors.email &&
               touched.email &&
@@ -35,7 +35,7 @@ const Form = () => {
             }`}
           ></input>
           <label
-            htmlFor="phone"
+            htmlFor="email"
             className="absolute bg-white top-[-.77rem] scale-[85%] text-black left-[6.28rem] peer-placeholder-shown:top-[.82rem] cursor-text ease-in-out duration-100 
                 peer-focus:text-black peer-placeholder-shown:text-gray-400 peer-placeholder-shown:scale-[100%]
                 peer-focus:top-[-.77rem] peer-focus:bg-white peer-focus:scale-[85%]
@@ -75,7 +75,7 @@ const Form = () => {
 
         <button
           type="submit"
-          className="mt-[2rem] w-[25rem] bg-[#ff4a26] hover:bg-[#d33920] rounded-full text-white"
+          className="mt-[2rem] w-[25rem] py-2 bg-[#ff4a26] hover:bg-[#d33920] rounded-full text-white"
           onClick={() => handleSubmit}
         >
           LOGIN
