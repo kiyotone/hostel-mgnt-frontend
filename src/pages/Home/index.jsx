@@ -10,7 +10,7 @@ const Home = () => {
         </div>
         <Swiper />
         <div className='pl-20 pt-[7rem] text-[2rem] font-semibold'>
-            Trending Now
+            Featured
         </div>
         <Featured />
     </div>
