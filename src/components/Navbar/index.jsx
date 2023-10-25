@@ -1,59 +1,35 @@
-import React from 'react'
-import {BiBuildingHouse} from 'react-icons/bi'
-import {HiMiniGlobeAsiaAustralia} from 'react-icons/hi2'
-import {FaUser} from 'react-icons/fa'
-import Search from './Search'
-import {Link} from 'react-router-dom'
+import React, { useState } from 'react'
+
+import BottomNav from './BottomNav'
+
+import NavTop from './NavTop'
+
 
 
 const Navbar = () => {
+  
+  const [newNav,setNewNav] = useState(false);
+
+  if (typeof window !== "undefined") {
+    window.addEventListener("scroll", function () {
+      if (this.scrollY > 300) {
+        setNewNav(true);
+      } else {
+        setNewNav(false);
+      }
+    
+    });
+
+
+  }
+
   return (
-    <div className='w-full bg-[#d3174d] font-semibold text-[.9rem] text-black h-[18rem]'>
+
+    <div className='w-full bg-[#d3174d] font-semibold text-[.9rem] text-black'>
         
-        <div className='bg-white flex justify-between w-full h-[4.5rem]'>
+        <NavTop newNav = {newNav}/>
 
-            <div>
-                {/* //TODO LOGO */}
-            </div>
-
-            <div className='flex gap-x-10 mr-[6rem]'>
-                <div className='flex items-center gap-x-2'>
-                    <BiBuildingHouse className='text-2xl'/>
-                    <div>
-                    YOUR HOSTEL
-                    </div> 
-                </div>
-
-
-                <div className='flex items-center gap-x-10'>
-                    <div className=' left-[80rem] -ml-0.5 w-[.05rem] h-full bg-gray-300'></div>
-                    <div className=' flex gap-x-2 items-center'>
-                    <HiMiniGlobeAsiaAustralia className='text-2xl'/>
-                    <div>English</div>
-                    </div>
-
-                    <div className=' left-[80rem] -ml-0.5 w-[.05rem] h-full bg-gray-300'></div>
-                </div>
-
-                <div className='flex items-center  gap-x-2'>
-                <FaUser className='text-xl'/>
-                 
-                 <Link className='text-black cursor-pointer' to={'/register'} >Login / Signup</Link>
-                </div>
-
-            </div>
-
-        </div>
-        <div className='flex flex-col items-center'>
-
-        <div className='text-white text-[2rem] font-bold mt-10'>
-            HOSTEL MOTO    
-        </div> 
-        
-        <Search />
-
-        </div>
-        
+        <BottomNav />        
 
     </div>
   )

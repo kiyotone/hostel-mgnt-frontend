@@ -1,10 +1,13 @@
 // import Swiper core and required modules
-import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
+import { Navigation, Pagination, Scrollbar, A11y , Autoplay } from 'swiper/modules';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 // Import Swiper styles
-
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import 'swiper/css/scrollbar';
 
 export default () => {
 
@@ -22,12 +25,13 @@ export default () => {
   ];
   
   return ( 
-    <Swiper className='flex w-[60rem] mt-3 bg-gray-300 h-[35rem] mb-20 flex-col items-center'
+    <Swiper className='flex w-[95%] mt-3 bg-gray-300 h-[35rem] flex-col items-center'
       // install Swiper modules
-      modules={[Navigation, Pagination, Scrollbar, A11y]}
+      modules={[Pagination, Scrollbar, A11y , Autoplay]}
       spaceBetween={50}
       slidesPerView={1}
-      navigation
+      
+      autoplay={true}
       pagination={{ clickable: true }}
       
     >
@@ -36,7 +40,7 @@ export default () => {
         return (
 
           <SwiperSlide className=' flex items-center justify-center'>
-            <div className='bg-white flex w-[55rem] shadow-2xl h-[30rem] rounded-md items-center'>
+            <div className='bg-green-300 flex w-[95%] shadow-2xl h-[35rem] rounded-md items-center'>
 
             </div>
             
