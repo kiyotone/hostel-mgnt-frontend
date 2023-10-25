@@ -8,7 +8,7 @@ const NavTop = ({newNav}) => {
   return (
 
 
-    <div className={`bg-white flex justify-between ${newNav && " z-10 fixed top-0 transition-all ease-in-out duration-1000 " } w-full h-[4.8rem] t`}>
+    <div className={`bg-white flex justify-between ${newNav && " z-10 fixed top-[-3rem] translate-y-[3rem] transition-all ease-in-out duration-200 " } w-full h-[4.8rem] t`}>
 
         <div className='w-[25rem]'>
             {/* //TODO LOGO */ }
