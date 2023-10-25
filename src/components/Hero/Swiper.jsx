@@ -25,7 +25,7 @@ export default () => {
   ];
   
   return ( 
-    <Swiper className='flex w-[60rem] mt-3 bg-gray-300 h-[35rem] flex-col items-center'
+    <Swiper className='flex w-[95%] mt-3 bg-gray-300 h-[35rem] flex-col items-center'
       // install Swiper modules
       modules={[Pagination, Scrollbar, A11y , Autoplay]}
       spaceBetween={50}
@@ -40,7 +40,7 @@ export default () => {
         return (
 
           <SwiperSlide className=' flex items-center justify-center'>
-            <div className='bg-white flex w-[55rem] shadow-2xl h-[30rem] rounded-md items-center'>
+            <div className='bg-green-300 flex w-[95%] shadow-2xl h-[35rem] rounded-md items-center'>
 
             </div>
             
