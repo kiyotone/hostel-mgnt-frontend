@@ -5,7 +5,7 @@ const Card = ({ name, location, price }) => {
   return (
     <main className="max-w-xs rounded overflow-hidden shadow-lg bg-red-500 text-white">
       <img
-        src="/hostel-image.png"
+        src="../public/hostel_image.jpeg"
         alt="Hostel Image"
         className="w-full h-48 object-cover transform scale-100 hover:scale-105 transition-transform"
       />

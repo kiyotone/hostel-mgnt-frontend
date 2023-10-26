@@ -14,18 +14,25 @@ export default () => {
   const images = [
     {
       id: 1,
+      url: '/img1.png',
       
     },
     {
       id: 2,
+      url: '/img2.png',
+      
+    
     },
     {
       id: 3,
+      url: '/img3.png',
+      
+  
     }
   ];
   
   return ( 
-    <Swiper className='flex w-[95%] mt-3 bg-gray-300 h-[35rem] flex-col items-center'
+    <Swiper className='flex w-[95%] shadow-2xl rounded-ful bg-gray-300 h-[35rem] flex-col items-center'
       // install Swiper modules
       modules={[Pagination, Scrollbar, A11y , Autoplay]}
       spaceBetween={50}
@@ -39,9 +46,9 @@ export default () => {
 
         return (
 
-          <SwiperSlide className=' flex items-center justify-center'>
-            <div className='bg-green-300 flex w-[95%] shadow-2xl h-[35rem] rounded-md items-center'>
-
+          <SwiperSlide className=''>
+            <div className='bg-green-300 flex w-[100%] shadow-2xl h-[35rem] rounded-md items-center'>
+            <img  className='w-full h-full' src={e.url}></img>
             </div>
             
         
