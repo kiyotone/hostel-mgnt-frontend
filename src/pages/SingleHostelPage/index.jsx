@@ -1,32 +1,42 @@
-import ImageSlider from "./Slides";
-import Payment from "../../components/Payment";
+
 import { FaStar } from "react-icons/fa";
 import SimilarHostels from "./Similar";
+import { useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { getData } from "../../services/axios.service";
+import ImageSlider from "./Slides";
 
 const SingleHostelPage = () => {
-  const hostelImages = [
-    "hostel_image.jpeg",
-    "hostel_image.jpeg",
-    "hostel_image.jpeg",
-    "hostel_image.jpeg",
-    "hostel_image.jpeg",
-    "hostel_image.jpeg",
-  ];
+  const [hostel, sethostel] = useState(null);
+  const { id } = useParams();
+
+  const getSingleHostel = async () => {
+    const response = await getData(`hostels/${id}`);
+    console.log(response.hostel,"response");
+    sethostel(response.hostel);
+    console.log(hostel.images)
+  };
+  useEffect(() => {
+    getSingleHostel();
+  }, []);
+
   return (
-    <main className="container mx-auto p-4">
-      <ImageSlider images={hostelImages} />
+    <>
+    {
+      hostel&&
+      <main className="container mx-auto p-4">
+        <ImageSlider images={hostel.images}/>
+  
       <div className="flex gap-4 flex-col md:flex-row relative">
         <div className=" rounded-md my-5 shadow-lg p-4">
-          <h1 className="text-2xl font-bold mb-4">Hostel Name</h1>
-          <p>Address: </p>
-          <p>City, State - ZIP Code</p>
+          <h1 className="text-2xl font-bold mb-4">{hostel.name}</h1>
+          <p>Address:{hostel.location.city}-{hostel.location.localLocation} </p>
+          <p>Phone no:{hostel.phone} </p>
           <div className="mt-5">
             Description:
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-              Perspiciatis, sit rem sunt facilis provident ad expedita tempore
-              quaerat vel? Deserunt, ducimus! Id officia eligendi beatae facere,
-              vitae et praesentium? Pariatur!
+              {hostel.description}
+       
             </p>
           </div>
           <div className="mt-5">
@@ -98,9 +108,6 @@ const SingleHostelPage = () => {
             </div>
           </div>
         </div>
-        <div className="my-5 sticky top-1/2">
-          <Payment price={15000} />
-        </div>
       </div>
       <div className="my-5 shadow-lg p-4 rounded-md">
         <h1 className="text-3xl text-center">Google Maps</h1>
@@ -109,6 +116,11 @@ const SingleHostelPage = () => {
         <SimilarHostels />
       </div>
     </main>
+    }
+    
+    </>
+ 
+
   );
 };
 

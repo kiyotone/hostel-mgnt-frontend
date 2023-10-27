@@ -1,11 +1,30 @@
-import './App.css'
+import { Route, Routes } from "react-router-dom";
+import "./App.css";
+import Home from "./pages/Home";
+import SignUp from "./pages/signup";
+import SignIn from "./pages/signin";
+import Navbar from "./components/Navbar";
+import Hostels from "./pages/Hostels";
+import AboutUs from "./pages/AboutUs";
+import SingleHostelPage from "./pages/SingleHostelPage";
 
 function App() {
+
   return (
-  <>
-  <h1> hello from client</h1>
-  </>
-  )
+    <>
+    <Routes>
+      <Route path="/" element={<Navbar/>}>
+      <Route path="/" element={<Home/>}/>
+      <Route path="/hostels" element={<Hostels/>}/>
+      <Route path="/hostels/:id" element={<SingleHostelPage/>}/>
+      <Route path="/about-us" element={<AboutUs/>}/>
+      </Route>
+      <Route path="/signup" element={<SignUp/>}/>
+      <Route path="/signin" element={<SignIn/>}/>
+    </Routes>
+
+    </>
+  );
 }
 
-export default App;
+export default App

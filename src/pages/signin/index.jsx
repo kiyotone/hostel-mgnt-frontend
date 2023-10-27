@@ -1,7 +1,7 @@
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import { object, string } from "yup";
 import { addData } from "../../services/axios.service";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { errorToast, successToast } from "../../services/toastify.service";
 import { useDispatch } from "react-redux";
 import { logedin } from "./auth.slice";
@@ -40,7 +40,7 @@ const SignIn = () => {
     }
   }
   return (
-    <div className="max-w-md mx-auto mb-2 bg-white shadow-lg  flex flex-col items-center justify-center mt-[10%] py-6
+    <div className="max-w-md mx-auto mb-2 bg-white shadow-lg  flex flex-col items-center justify-center mt-[5%] py-6
     6">
         <h1 className='text-center text-4xl font-bold mb-10'>Login User</h1>
       <Formik
@@ -89,11 +89,17 @@ const SignIn = () => {
               >
                 {isSubmitting ? "creating...." : "Login"}
               </button>
+              <div className="my-3">
+                
               <SignInWithGoogle/>
+              </div>
             </Form>
           );
         }}
       </Formik>
+      <div>
+          <Link to='/signup' className='text-xl mt-20'>Dont  have an account? Signup</Link>
+        </div>
     </div>
   );
 };

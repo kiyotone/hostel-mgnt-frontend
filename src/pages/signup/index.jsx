@@ -2,7 +2,7 @@ import { ErrorMessage, Field, Form, Formik } from 'formik'
 import {object, string} from 'yup'
 import { addData } from '../../services/axios.service'
 import { errorToast, successToast } from '../../services/toastify.service'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 const SignUp = () => {
     const navigate=useNavigate()
 
@@ -38,7 +38,7 @@ const SignUp = () => {
     
   return (
     <>
-    <div className='max-w-md mx-auto mb-2 bg-white shadow-lg  flex flex-col items-center justify-center mt-[10%] py-4'>
+    <div className='max-w-md mx-auto mb-2 bg-white shadow-lg  flex flex-col items-center justify-center mt-[5%] py-4'>
         <h1 className='text-center text-4xl font-bold mb-10'>Register User</h1>
 
         <Formik initialValues={initialValue} validationSchema={validationSchema} onSubmit={handleSignupForm}>
@@ -109,7 +109,7 @@ const SignUp = () => {
                   />
                 </div>
 
-                <button type="submit" className="bg-blue-500 hover:bg-blue-600 p-3 text-xl text-white fw-fw-bolder w-full rounded-md text-center ">
+                <button type="submit" className="bg-blue-500 hover:bg-blue-600 p-3 text-xl text-white fw-fw-bolder w-full rounded-md text-cente my-3 ">
                 {isSubmitting ? "creating...." :"Register "}          
               </button>
 
@@ -118,6 +118,11 @@ const SignUp = () => {
             }
         }
         </Formik>
+
+
+        <div>
+          <Link to='/signin' className='text-xl mt-2'>Already have an account? Signin</Link>
+        </div>
 
     </div>
         </>

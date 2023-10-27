@@ -31,12 +31,12 @@ function Navbar() {
                         </NavLink>
                     </li>
                     <li onClick={removeActive}>
-                        <NavLink to="/shop" className={({ isActive }) => (isActive ? styles.active : "")}>
+                        <NavLink to="/hostels" className={({ isActive }) => (isActive ? styles.active : "")}>
                             Hostels
                         </NavLink>
                     </li>
                     <li onClick={removeActive}>
-                        <NavLink to="/aboutus" className={({ isActive }) => (isActive ? styles.active : "")}>
+                        <NavLink to="/about-us" className={({ isActive }) => (isActive ? styles.active : "")}>
                             About Us
                         </NavLink>
                     </li>

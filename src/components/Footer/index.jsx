@@ -1,4 +1,3 @@
-import React from "react";
 import { FaFacebook, FaInstagram, FaTwitter } from "react-icons/fa";
 
 const Footer = () => {
@@ -21,17 +20,17 @@ const Footer = () => {
             <h2 className="text-xl font-semibold mb-4">Connect With Us</h2>
             <ul className="text-base flex items-center md:justify-evenly justify-center gap-3">
               <li>
-                <a href="https://www.facebook.com" target="_blank">
+                <a href="https://www.facebook.com" rel="noreferrer" target="_blank">
                   <FaFacebook size={24} />
                 </a>
               </li>
               <li>
-                <a href="https://www.twitter.com" target="_blank">
+                <a href="https://www.twitter.com" rel="noreferrer" target="_blank">
                   <FaTwitter size={24} />
                 </a>
               </li>
               <li>
-                <a href="https://www.instagram.com" target="_blank">
+                <a href="https://www.instagram.com" rel="noreferrer" target="_blank">
                   <FaInstagram size={24} />
                 </a>
               </li>

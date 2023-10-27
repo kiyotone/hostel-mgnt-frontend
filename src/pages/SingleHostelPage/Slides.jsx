@@ -1,11 +1,11 @@
-import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, A11y } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 
-const ImageSlider = ({ images }) => {
+const ImageSlider = ({images}) => {
+ 
   return (
     <Swiper
       modules={[Navigation, Pagination, A11y]}
@@ -29,7 +29,7 @@ const ImageSlider = ({ images }) => {
       {images.map((image, index) => (
         <SwiperSlide key={index}>
           <img
-            src={image}
+            src={image.url}
             alt={`Slide ${index}`}
             className="w-full h-96 object-cover"
           />
