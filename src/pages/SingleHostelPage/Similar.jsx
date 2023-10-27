@@ -71,9 +71,9 @@ const SimilarHostels = () => {
         }}
       >
         {hostelData &&
-          hostelData.map((data) => {
+          hostelData.map((data,index) => {
             return (
-              <SwiperSlide className="flex flex-row items-center justify-center">
+              <SwiperSlide key={index} className="flex flex-row items-center justify-center">
                 <Card
                   name={data.name}
                   location={data.loaction}
