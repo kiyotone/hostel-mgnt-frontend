@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { errorToast, successToast } from "../../services/toastify.service";
 import { useDispatch } from "react-redux";
 import { logedin } from "./auth.slice";
+import SignInWithGoogle from "../../components/SignInWithGoogle";
 
 const SignIn = () => {
     const navigate=useNavigate()
@@ -88,6 +89,7 @@ const SignIn = () => {
               >
                 {isSubmitting ? "creating...." : "Login"}
               </button>
+              <SignInWithGoogle/>
             </Form>
           );
         }}
