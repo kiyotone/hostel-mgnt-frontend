@@ -10,11 +10,13 @@ import SignInWithGoogle from "../../components/SignInWithGoogle";
 const SignIn = () => {
     const navigate=useNavigate()
     const dispatch=useDispatch()
+    // step 1
   const initialValue = {
     email: "",
     password: "",
   };
 
+  
   const validationSchema = object().shape({
     email: string().required("Email field is required"),
     password: string()
@@ -39,6 +41,7 @@ const SignIn = () => {
         errorToast(response.message?response.message:"Unable to logged in the user")
     }
   }
+  
   return (
     <div className="max-w-md mx-auto mb-2 bg-white shadow-lg  flex flex-col items-center justify-center mt-[5%] py-6
     6">
