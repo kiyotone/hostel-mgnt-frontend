@@ -4,8 +4,8 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 
-const ImageSlider = ({images}) => {
- 
+// eslint-disable-next-line react/prop-types
+const ImageSlider = ({ images }) => {
   return (
     <Swiper
       modules={[Navigation, Pagination, A11y]}
@@ -26,6 +26,7 @@ const ImageSlider = ({images}) => {
         },
       }}
     >
+      {/*eslint-disable-next-line react/prop-types*/}
       {images.map((image, index) => (
         <SwiperSlide key={index}>
           <img

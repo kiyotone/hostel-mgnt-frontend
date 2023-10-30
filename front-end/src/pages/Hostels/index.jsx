@@ -2,6 +2,7 @@ import Footer from "../../components/Footer";
 import { getDataWithoutHeader } from "../../services/axios.service";
 import { useEffect, useState } from "react";
 import Card from "../../components/Card";
+import "./index.css";
 
 const Hostels = () => {
   const [hostels, sethostels] = useState([]);
@@ -20,7 +21,7 @@ const Hostels = () => {
   return (
     <>
       <div className="flex justify-center items-center">
-        <div className=" mt-10  flex gap-10  mx-auto">
+        <div className="hostels">
           {hostels.map((hostel) => {
             return (
               <>

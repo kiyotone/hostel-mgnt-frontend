@@ -16,9 +16,14 @@ import Box from "@mui/material/Box";
 import Rating from "@mui/material/Rating";
 import Typography from "@mui/material/Typography";
 import { useSelector } from "react-redux";
-import { errorToast, loadingToast, successToast } from "../../services/toastify.service";
+import {
+  errorToast,
+  loadingToast,
+  successToast,
+} from "../../services/toastify.service";
 import Button from "@mui/material/Button";
 import Modal from "@mui/material/Modal";
+import "./singlehostel.module.css";
 const SingleHostelPage = () => {
   const { token, isLogedInStatus, userId } = useSelector((state) => state.auth);
   const [reviewData, setreviewData] = useState({
@@ -29,9 +34,9 @@ const SingleHostelPage = () => {
   const [allReviews, setallReviews] = useState([]);
   const [hostel, sethostel] = useState(null);
   const [updData, setupdData] = useState({
-    rating:0,
-    comment:""
-  })
+    rating: 0,
+    comment: "",
+  });
 
   // modal for updating the rating
   const [open, setOpen] = useState(false);
@@ -60,6 +65,7 @@ const SingleHostelPage = () => {
   useEffect(() => {
     getSingleHostel();
     getAllReviews();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const handleReviewFormSubmit = async () => {
@@ -108,24 +114,30 @@ const SingleHostelPage = () => {
       );
     }
   };
-  const updateReviewHandler = async(reviewid) => {
-    handleOpen()
-    localStorage.setItem("hostel_update",reviewid)
-    const response=await getDataWithoutHeader(`reviews/${reviewid}`)
-    console.log(response)
-    if(response.success){
-      setupdData({comment:response.review.comment,rating:response.review.rating})
+  const updateReviewHandler = async (reviewid) => {
+    handleOpen();
+    localStorage.setItem("hostel_update", reviewid);
+    const response = await getDataWithoutHeader(`reviews/${reviewid}`);
+    console.log(response);
+    if (response.success) {
+      setupdData({
+        comment: response.review.comment,
+        rating: response.review.rating,
+      });
     }
-   
   };
 
-  const submitUpdatedData=async()=>{
-    const updID=localStorage.getItem('hostel_update')
-    loadingToast()
-    const response=await updateDataWithHeader(`reviews/${updID}`,updData,token)
-    if(response.success){
-    localStorage.removeItem('hostel_update')
-      handleClose()
+  const submitUpdatedData = async () => {
+    const updID = localStorage.getItem("hostel_update");
+    loadingToast();
+    const response = await updateDataWithHeader(
+      `reviews/${updID}`,
+      updData,
+      token
+    );
+    if (response.success) {
+      localStorage.removeItem("hostel_update");
+      handleClose();
       const newArr = [];
       allReviews.map((review) => {
         if (review.user._id === response.updReview.user._id) {
@@ -135,22 +147,20 @@ const SingleHostelPage = () => {
         }
       });
       setallReviews(newArr);
-      successToast(response.message?response.message:"Review updated successfully")
+      successToast(
+        response.message ? response.message : "Review updated successfully"
+      );
     }
-    
-    
-
-
-  }
+  };
 
   return (
     <>
       {hostel && (
-        <main className="container mx-auto p-4">
+        <main className="container mx-auto p-1 sm:p-4">
           <ImageSlider images={hostel.images} />
 
           <div className="flex gap-4 flex-col md:flex-row relative">
-            <div className=" rounded-md my-5 shadow-lg p-4">
+            <div className="rounded-md my-5 shadow-lg p-4">
               <h1 className="text-2xl font-bold mb-4">{hostel.name}</h1>
               <p>
                 Address:{hostel.location.city}-{hostel.location.localLocation}{" "}
@@ -175,13 +185,13 @@ const SingleHostelPage = () => {
                 </h1>
                 <div className="border mt-2 flex flex-col lg:flex-row items-center justify-between">
                   <div className=" flex w-full justify-center flex-col">
-                    <div className="px-20">
+                    <div className="px-5">
                       {allReviews &&
                         allReviews.map((review) => {
                           return (
                             <div
                               key={review._id}
-                              className="shadow-sm p-2 flex justify-between px-10 items-center gap-2"
+                              className="shadow-sm py-5 flex flex-col sm:flex-row justify-between pr-10 items-center gap-2"
                             >
                               <div>
                                 <h1 className="font-medium">
@@ -195,56 +205,84 @@ const SingleHostelPage = () => {
                                   readOnly
                                 />
                               </div>
-                              {review.user._id == userId && isLogedInStatus && (
-                                <div className="flex gap-5">
-                                  <button
-                                    onClick={() =>
-                                      deleteReviewHandler(review._id)
-                                    }
-                                  >
-                                    <DeleteIcon />
-                                  </button>
-                                  <button
-                                    onClick={() =>
-                                      updateReviewHandler(review._id)
-                                    }
-                                  >
-                                    <EditIcon />
-                                  </button>
-                                </div>
-                              )}
                               <div>
-                                
-                                  <Modal
+                                {review.user._id == userId &&
+                                  isLogedInStatus && (
+                                    <div className="flex gap-5">
+                                      <button
+                                        onClick={() =>
+                                          deleteReviewHandler(review._id)
+                                        }
+                                      >
+                                        <DeleteIcon />
+                                      </button>
+                                      <button
+                                        onClick={() =>
+                                          updateReviewHandler(review._id)
+                                        }
+                                      >
+                                        <EditIcon />
+                                      </button>
+                                    </div>
+                                  )}
+                              </div>
+                              <div>
+                                <Modal
                                   open={open}
                                   onClose={handleClose}
                                   aria-labelledby="modal-modal-title"
                                   aria-describedby="modal-modal-description"
                                 >
                                   <Box className="w-[400px] bg-white rounded-md absolute left-[30%] top-[30%] p-10">
-                                    <h1 className="text-center mb-2 text-2xl text-slate-800"> Update Review</h1>
-                                    <label htmlFor="Comment" className="block text-xl">Comment:</label>
-                                    <input type="text" 
-                                    value={updData.comment}
-                                    onChange={(e)=>setupdData({...updData,comment:e.target.value})}
-                                    
-                                    className="outline-none border-none w-[300px] p-2 rounded-md bg-gray-300 my-3" />
-                                    <label htmlFor="rating" className="block my-2 text-xl"> Rating:</label>
+                                    <h1 className="text-center mb-2 text-2xl text-slate-800">
+                                      {" "}
+                                      Update Review
+                                    </h1>
+                                    <label
+                                      htmlFor="Comment"
+                                      className="block text-xl"
+                                    >
+                                      Comment:
+                                    </label>
+                                    <input
+                                      type="text"
+                                      value={updData.comment}
+                                      onChange={(e) =>
+                                        setupdData({
+                                          ...updData,
+                                          comment: e.target.value,
+                                        })
+                                      }
+                                      className="outline-none border-none w-[300px] p-2 rounded-md bg-gray-300 my-3"
+                                    />
+                                    <label
+                                      htmlFor="rating"
+                                      className="block my-2 text-xl"
+                                    >
+                                      {" "}
+                                      Rating:
+                                    </label>
                                     <Rating
                                       name="simple-controlled"
                                       value={updData.rating}
                                       onChange={(event, newValue) => {
-                                        setupdData({ ...updData, rating: newValue });
+                                        setupdData({
+                                          ...updData,
+                                          rating: newValue,
+                                        });
                                       }}
                                     />
 
                                     <div className="mt-2 relative left-[70%]">
-                                    <Button variant="contained" onClick={()=>submitUpdatedData()}>Submit</Button>
+                                      <Button
+                                        variant="contained"
+                                        onClick={() => submitUpdatedData()}
+                                      >
+                                        Submit
+                                      </Button>
                                     </div>
                                   </Box>
                                 </Modal>
-                                
-                                
                               </div>
                             </div>
                           );
@@ -253,7 +291,7 @@ const SingleHostelPage = () => {
                   </div>
 
                   {isLogedInStatus && (
-                    <div className="rating-review p-10 shadow-lg">
+                    <div className="rating-review mx-2 p-4 shadow-lg">
                       <label
                         htmlFor="comment"
                         className="my-3 text-xl font-sans block"
@@ -263,7 +301,7 @@ const SingleHostelPage = () => {
                       </label>
                       <input
                         type="text"
-                        className="outline-none border-none w-[300px] p-2 rounded-md bg-gray-300 my-3"
+                        className="outline-none border-none w-[250px] sm:w-[300px] p-2 rounded-md bg-gray-300 my-3"
                         value={reviewData.comment}
                         onChange={(e) =>
                           setreviewData({

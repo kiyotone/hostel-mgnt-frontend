@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 const Card = ({ name, location, price, rating, noOfReviews, id }) => {
   const navigate = useNavigate();
   return (
-    <main className="card min-w-[20rem] max-w-[20rem] bg-white cursor-pointer shadow-lg rounded-lg overflow-hidden">
+    <main className="card sm:w-[20rem] w-[15rem] bg-white cursor-pointer shadow-lg rounded-lg overflow-hidden">
       <img
         src="/hostel_image.jpeg"
         alt="Hostel"
