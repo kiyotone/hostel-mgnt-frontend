@@ -21,7 +21,7 @@ function Navbar() {
             <div className={`${styles.nav}`}>
                 {
                     <NavLink to="/" className={`${styles.logo}`}>
-                        <h1>Our Hostel</h1>
+                        <h1 className="text-2xl font-bold">Our Hostel</h1>
                     </NavLink>}
 
                 <ul className={`${styles.navMenu} ${isActive ? styles.active : ""}`}>

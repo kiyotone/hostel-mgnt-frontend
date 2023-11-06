@@ -16,7 +16,11 @@ import Box from "@mui/material/Box";
 import Rating from "@mui/material/Rating";
 import Typography from "@mui/material/Typography";
 import { useSelector } from "react-redux";
-import { errorToast, loadingToast, successToast } from "../../services/toastify.service";
+import {
+  errorToast,
+  loadingToast,
+  successToast,
+} from "../../services/toastify.service";
 import Button from "@mui/material/Button";
 import Modal from "@mui/material/Modal";
 const SingleHostelPage = () => {
@@ -29,9 +33,9 @@ const SingleHostelPage = () => {
   const [allReviews, setallReviews] = useState([]);
   const [hostel, sethostel] = useState(null);
   const [updData, setupdData] = useState({
-    rating:0,
-    comment:""
-  })
+    rating: 0,
+    comment: "",
+  });
 
   // modal for updating the rating
   const [open, setOpen] = useState(false);
@@ -92,6 +96,8 @@ const SingleHostelPage = () => {
           setallReviews(newArr);
           setloading(true);
         }
+      } else {
+        errorToast(response.messsage);
       }
     }
   };
@@ -106,26 +112,34 @@ const SingleHostelPage = () => {
       successToast(
         response.message ? response.message : "Review deleted successfully"
       );
+    } else {
+      errorToast(response.message);
     }
   };
-  const updateReviewHandler = async(reviewid) => {
-    handleOpen()
-    localStorage.setItem("hostel_update",reviewid)
-    const response=await getDataWithoutHeader(`reviews/${reviewid}`)
-    console.log(response)
-    if(response.success){
-      setupdData({comment:response.review.comment,rating:response.review.rating})
+  const updateReviewHandler = async (reviewid) => {
+    handleOpen();
+    localStorage.setItem("hostel_update", reviewid);
+    const response = await getDataWithoutHeader(`reviews/${reviewid}`);
+    console.log(response);
+    if (response.success) {
+      setupdData({
+        comment: response.review.comment,
+        rating: response.review.rating,
+      });
     }
-   
   };
 
-  const submitUpdatedData=async()=>{
-    const updID=localStorage.getItem('hostel_update')
-    loadingToast()
-    const response=await updateDataWithHeader(`reviews/${updID}`,updData,token)
-    if(response.success){
-    localStorage.removeItem('hostel_update')
-      handleClose()
+  const submitUpdatedData = async () => {
+    const updID = localStorage.getItem("hostel_update");
+    loadingToast();
+    const response = await updateDataWithHeader(
+      `reviews/${updID}`,
+      updData,
+      token
+    );
+    if (response.success) {
+      localStorage.removeItem("hostel_update");
+      handleClose();
       const newArr = [];
       allReviews.map((review) => {
         if (review.user._id === response.updReview.user._id) {
@@ -135,13 +149,13 @@ const SingleHostelPage = () => {
         }
       });
       setallReviews(newArr);
-      successToast(response.message?response.message:"Review updated successfully")
+      successToast(
+        response.message ? response.message : "Review updated successfully"
+      );
+    } else {
+      errorToast(response.message);
     }
-    
-    
-
-
-  }
+  };
 
   return (
     <>
@@ -173,7 +187,7 @@ const SingleHostelPage = () => {
                 <h1 className="font-semibold text-2xl">
                   Reviews and Ratings:({hostel.noOfReviews})
                 </h1>
-                <div className="border mt-2 flex flex-col lg:flex-row items-center justify-between">
+                <div className="border mt-2 flex flex-col lg:flex-row justify-between">
                   <div className=" flex w-full justify-center flex-col">
                     <div className="px-20">
                       {allReviews &&
@@ -188,7 +202,6 @@ const SingleHostelPage = () => {
                                   {review.user.name}
                                 </h1>
                                 <h1>{review.comment}</h1>
-                                <h1>{review._id}</h1>
                                 <Rating
                                   name="read-only"
                                   value={review.rating}
@@ -214,37 +227,62 @@ const SingleHostelPage = () => {
                                 </div>
                               )}
                               <div>
-                                
-                                  <Modal
+                                <Modal
                                   open={open}
                                   onClose={handleClose}
                                   aria-labelledby="modal-modal-title"
                                   aria-describedby="modal-modal-description"
                                 >
                                   <Box className="w-[400px] bg-white rounded-md absolute left-[30%] top-[30%] p-10">
-                                    <h1 className="text-center mb-2 text-2xl text-slate-800"> Update Review</h1>
-                                    <label htmlFor="Comment" className="block text-xl">Comment:</label>
-                                    <input type="text" 
-                                    value={updData.comment}
-                                    onChange={(e)=>setupdData({...updData,comment:e.target.value})}
-                                    
-                                    className="outline-none border-none w-[300px] p-2 rounded-md bg-gray-300 my-3" />
-                                    <label htmlFor="rating" className="block my-2 text-xl"> Rating:</label>
+                                    <h1 className="text-center mb-2 text-2xl text-slate-800">
+                                      {" "}
+                                      Update Review
+                                    </h1>
+                                    <label
+                                      htmlFor="Comment"
+                                      className="block text-xl"
+                                    >
+                                      Comment:
+                                    </label>
+                                    <input
+                                      type="text"
+                                      value={updData.comment}
+                                      onChange={(e) =>
+                                        setupdData({
+                                          ...updData,
+                                          comment: e.target.value,
+                                        })
+                                      }
+                                      className="outline-none border-none w-[300px] p-2 rounded-md bg-gray-300 my-3"
+                                    />
+                                    <label
+                                      htmlFor="rating"
+                                      className="block my-2 text-xl"
+                                    >
+                                      {" "}
+                                      Rating:
+                                    </label>
                                     <Rating
                                       name="simple-controlled"
                                       value={updData.rating}
                                       onChange={(event, newValue) => {
-                                        setupdData({ ...updData, rating: newValue });
+                                        setupdData({
+                                          ...updData,
+                                          rating: newValue,
+                                        });
                                       }}
                                     />
 
                                     <div className="mt-2 relative left-[70%]">
-                                    <Button variant="contained" onClick={()=>submitUpdatedData()}>Submit</Button>
+                                      <Button
+                                        variant="contained"
+                                        onClick={() => submitUpdatedData()}
+                                      >
+                                        Submit
+                                      </Button>
                                     </div>
                                   </Box>
                                 </Modal>
-                                
-                                
                               </div>
                             </div>
                           );
@@ -254,6 +292,9 @@ const SingleHostelPage = () => {
 
                   {isLogedInStatus && (
                     <div className="rating-review p-10 shadow-lg">
+                      <h1 className="text-center text-xl font-semibold mb-3">
+                        Write Your Reviews
+                      </h1>
                       <label
                         htmlFor="comment"
                         className="my-3 text-xl font-sans block"
