@@ -5,6 +5,7 @@ import Accordion from "./FaqSection/Accordion";
 import { getDataWithoutHeader } from "../../services/axios.service";
 import { useEffect, useState } from "react";
 import BottomNav from "../../components/Navbar/BottomNav";
+import WhyUs from "./Why Us";
 
 const Home = () => {
   const [accordions, setAccordions] = useState([]);
@@ -34,7 +35,7 @@ const Home = () => {
     }
   };
   return (
-    <div className="bg-white text-black pb-20">
+    <div className="bg-white text-black">
       <BottomNav />
       <Hero />
       <div className="pt-[7rem] text-[2rem] font-semibold">
@@ -63,6 +64,7 @@ const Home = () => {
       </div>
 
       <div>
+        <WhyUs />
         <Footer />
       </div>
     </div>

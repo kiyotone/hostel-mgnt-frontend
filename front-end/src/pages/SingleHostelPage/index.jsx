@@ -24,12 +24,17 @@ import {
 import Button from "@mui/material/Button";
 import Modal from "@mui/material/Modal";
 import "./singlehostel.module.css";
+import Map from "./Map";
+
+
 const SingleHostelPage = () => {
   const { token, isLogedInStatus, userId } = useSelector((state) => state.auth);
   const [reviewData, setreviewData] = useState({
     rating: 0,
     comment: "",
   });
+
+  
   const [loading, setloading] = useState(true);
   const [allReviews, setallReviews] = useState([]);
   const [hostel, sethostel] = useState(null);
@@ -340,6 +345,7 @@ const SingleHostelPage = () => {
           </div>
           <div className="my-5 shadow-lg p-4 rounded-md">
             <h1 className="text-3xl text-center">Google Maps</h1>
+            <Map />
           </div>
           <div>
             <SimilarHostels />
