@@ -15,6 +15,7 @@ const HomeSwapper = () => {
       name: "Kirtan",
       loaction: "Whatevdfdfer",
       price: "10000",
+      rating: 5
     },
     {
       name: "Kirtan",
@@ -85,6 +86,7 @@ const HomeSwapper = () => {
                 name={data.name}
                 location={data.loaction}
                 price={data.price}
+                rating={data.rating}
               />
             </SwiperSlide>
           );
