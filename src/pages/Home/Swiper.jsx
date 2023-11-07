@@ -9,7 +9,7 @@ import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 import Card from "../../components/Card";
 
-const  HomeSwapper =() => {
+const HomeSwapper = () => {
   const trendingData = [
     {
       name: "Kirtan",
@@ -56,18 +56,31 @@ const  HomeSwapper =() => {
   return (
     <Swiper
       // install Swiper modules
-      className="mx-auto mt-10 w-[85rem]"
+      className="mt-10 pb-4"
       modules={[Navigation, Pagination, Scrollbar, A11y]}
-      spaceBetween={20}
-      slidesPerView={4}
+      spaceBetween={1}
+      breakpoints={{
+        1480: {
+          slidesPerView: 4,
+        },
+        1100: {
+          slidesPerView: 3,
+        },
+        750: {
+          slidesPerView: 2,
+        },
+      }}
       navigation
       onSwiper={(swiper) => console.log(swiper)}
       onSlideChange={() => console.log("slide change")}
     >
       {trendingData &&
-        trendingData.map((data,index) => {
+        trendingData.map((data, index) => {
           return (
-            <SwiperSlide key={index} className="">
+            <SwiperSlide
+              key={index}
+              className="flex items-center justify-around"
+            >
               <Card
                 name={data.name}
                 location={data.loaction}
@@ -80,5 +93,4 @@ const  HomeSwapper =() => {
   );
 };
 
-  
-export default HomeSwapper
+export default HomeSwapper;

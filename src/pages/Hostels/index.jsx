@@ -14,6 +14,7 @@ const Hostels = () => {
 
   useEffect(() => {
     getHostels();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
