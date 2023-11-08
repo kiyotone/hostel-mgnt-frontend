@@ -1,13 +1,11 @@
-import React from 'react'
-import SideBar from './SideBar'
+import SideBar from "./SideBar";
 
 const AdminDashboard = () => {
   return (
     <div>
-        <SideBar />
-
+      <SideBar />
     </div>
-  )
-}
+  );
+};
 
-export default AdminDashboard
+export default AdminDashboard;
