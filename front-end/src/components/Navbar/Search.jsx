@@ -2,7 +2,7 @@ import { string } from "prop-types";
 const Search = () => {
   return (
     <div
-      className={`mt-5 w-full text-black h-[3rem]  flex flex-col sm:flex-row sm:gap-0 gap-1 items-center justify-center rounded-md`}
+      className={`mt-5 w-full text-black h-[3rem]  flex flex-col sm:flex-row sm:gap-0 gap-1 justify-center rounded-md`}
     >
       <input
         type="text"

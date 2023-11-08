@@ -11,12 +11,12 @@ const SideBar = () => {
             "link" : "home"    
     } ,
         {
-            "name" : "HOME",
-            "link" : "home"    
+            "name" : "Settings",
+            "link" : "settings"    
     } 
     ]
   return (
-    <div className='w-[20rem] h-screen sticky top-0 left-0 bg-black text-white flex items-center flex-col'>
+    <div className='w-[20rem] h-screen left-0 fixed bg-red-700 text-white flex items-center flex-col'>
         <div className='mt-10 text-3xl font-semibold'>DashBoard</div>
         
         <div className='mt-10 w-full flex flex-col items-center'>
@@ -24,7 +24,7 @@ const SideBar = () => {
                 sideIcons && sideIcons.map((e)=>{
                     return (
 
-                        <SideIcons name={e.name} link={`${usetId}+${e.link}`}/>
+                        <SideIcons name={e.name} link={`${usetId}/${e.link}`} key={e.name}/>
                     )
 
                 })
