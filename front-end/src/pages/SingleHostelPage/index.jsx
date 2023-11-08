@@ -43,6 +43,7 @@ const SingleHostelPage = () => {
     comment: "",
   });
 
+
   // modal for updating the rating
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
@@ -345,7 +346,7 @@ const SingleHostelPage = () => {
           </div>
           <div className="my-5 shadow-lg p-4 rounded-md">
             <h1 className="text-3xl text-center">Google Maps</h1>
-            <Map />
+            <Map lat={hostel.latitude} lon={hostel.longitude} />
           </div>
           <div>
             <SimilarHostels />

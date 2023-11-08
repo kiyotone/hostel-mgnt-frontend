@@ -7,6 +7,7 @@ import Navbar from "./components/Navbar";
 import Hostels from "./pages/Hostels";
 import AboutUs from "./pages/AboutUs";
 import SingleHostelPage from "./pages/SingleHostelPage";
+import AdminDashboard from "./pages/AdminDashboard";
 
 function App() {
   return (
@@ -18,6 +19,8 @@ function App() {
           <Route path="/hostels/:id" element={<SingleHostelPage />} />
           <Route path="/about-us" element={<AboutUs />} />
         </Route>
+      
+        <Route path="/admin-dashboard" element={<AdminDashboard />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/signin" element={<SignIn />} />
       </Routes>
