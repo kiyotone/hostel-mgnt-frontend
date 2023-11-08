@@ -1,7 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App.jsx";
-import ContactUs from "./pages/ContactUs/index.jsx";
 import "./index.css";
 import { persistor, store } from "./store/index.js";
 import "react-toastify/dist/ReactToastify.css";

@@ -17,7 +17,7 @@ const AdminDashboard = () => {
         </Routes>
         </div>
     </div>
-  )
-}
+  );
+};
 
-export default AdminDashboard
+export default AdminDashboard;

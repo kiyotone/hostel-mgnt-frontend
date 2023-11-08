@@ -13,7 +13,7 @@ const SideIcons = ({name , link}) => {
             {name}
         </div>
     </NavLink>
-  )
-}
+  );
+};
 
-export default SideIcons
+export default SideIcons;
