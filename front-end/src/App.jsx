@@ -18,9 +18,9 @@ function App() {
           <Route path="/hostels" element={<Hostels />} />
           <Route path="/hostels/:id" element={<SingleHostelPage />} />
           <Route path="/about-us" element={<AboutUs />} />
+          <Route path="/users/*" element={<AdminDashboard />} />
         </Route>
       
-        <Route path="/users/*" element={<AdminDashboard />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/signin" element={<SignIn />} />
       </Routes>
