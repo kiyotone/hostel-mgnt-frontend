@@ -14,7 +14,7 @@ const SideBar = () => {
   const sideIcons = [
     {
       name: "Dashboard",
-      link: "dashboard",
+      link: "",
       icon : <LuLayoutDashboard />,
     },
     {
@@ -46,7 +46,7 @@ const SideBar = () => {
   return (
     <div>
 
-      <div className={`md:w-[20rem] h-screen top-[4.4rem] left-0 fixed bg-red-700 text-white flex items-center flex-col w-[10rem] ease-in-out duration-300 ${!show && "left-[-10rem] "} `}>
+      <div className={`md:w-[20rem] h-[50rem] top-[4.4rem] left-0 fixed bg-[#3140b6] text-white flex items-center flex-col w-[10rem] ease-in-out duration-300 ${!show && "left-[-10rem] "} `}>
           <div className='mt-10 md:text-3xl font-semibold text-[1.4rem]'>DashBoard</div>
           
           <div className='mt-10 w-full flex flex-col items-center '>
@@ -63,7 +63,7 @@ const SideBar = () => {
           </div>
 
       </div>
-      <div className={`fixed top-[50%] left-[9rem] bg-red-700 text-white p-1 text-[2rem] rounded-full md:hidden ease-in-out duration-300 ${!show && 'left-[-1rem]'}`} onClick={handleBurger}>
+      <div className={`fixed top-[7rem] left-[9rem] bg-[#3140b6] text-white p-1 text-[2rem] rounded-full md:hidden ease-in-out duration-300 ${!show && 'left-[-1.3rem] '}`} onClick={handleBurger}>
                 {
                   !show ? 
                   <BiRightArrowCircle />:

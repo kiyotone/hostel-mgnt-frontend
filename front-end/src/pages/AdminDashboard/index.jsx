@@ -19,6 +19,9 @@ const AdminDashboard = () => {
         <Routes>
         <Route path={`/${usetId}`} element={<DashHome />}  />
           <Route path={`/${usetId}/settings`} element={<Settings />}  />
+          <Route path={`/${usetId}/faq`} element={<Settings />}  />
+          <Route path={`/${usetId}/category`} element={<Settings />}  />
+          <Route path={`/${usetId}/logout`} element={<Settings />}  />
         
         </Routes>
         </div>
