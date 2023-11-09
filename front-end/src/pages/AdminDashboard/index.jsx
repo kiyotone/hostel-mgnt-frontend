@@ -1,7 +1,6 @@
 import SideBar from "./SideBar";
 import { Route, Routes } from "react-router-dom";
 import Settings from "./Settings";
-import Faq from "./Faq";
 import { useSelector } from "react-redux";
 import DashHome from "./DashHome";
 
@@ -16,7 +15,6 @@ const AdminDashboard = () => {
         <Routes>
           <Route path={`/${usetId}`} element={<DashHome />} />
           <Route path={`/${usetId}/settings`} element={<Settings />} />
-          <Route path={`/${usetId}/faqs`} element={<Faq />} />
         </Routes>
       </div>
     </div>

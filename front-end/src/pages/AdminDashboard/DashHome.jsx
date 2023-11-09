@@ -1,13 +1,5 @@
-import React from 'react'
-
 const DashHome = () => {
-  return (
-    <div>
-        
-        
+  return <div></div>;
+};
 
-    </div>
-  )
-}
-
-export default DashHome
+export default DashHome;
