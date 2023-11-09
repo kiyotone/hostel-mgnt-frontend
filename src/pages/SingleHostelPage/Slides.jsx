@@ -1,10 +1,10 @@
-import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, A11y } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 
+// eslint-disable-next-line react/prop-types
 const ImageSlider = ({ images }) => {
   return (
     <Swiper
@@ -26,10 +26,11 @@ const ImageSlider = ({ images }) => {
         },
       }}
     >
+      {/*eslint-disable-next-line react/prop-types*/}
       {images.map((image, index) => (
         <SwiperSlide key={index}>
           <img
-            src={image}
+            src={image.url}
             alt={`Slide ${index}`}
             className="w-full h-96 object-cover"
           />

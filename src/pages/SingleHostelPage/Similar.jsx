@@ -56,24 +56,27 @@ const SimilarHostels = () => {
         navigation
         pagination={{ clickable: true }}
         breakpoints={{
-          1280: {
+          //   1920: {
+          //     slidesPerView: 4,
+          //   },
+          1536: {
             slidesPerView: 4,
           },
-          768: {
+          1080: {
             slidesPerView: 3,
           },
-          550: {
+          768: {
             slidesPerView: 2,
-          },
-          320: {
-            slidesPerView: 1,
           },
         }}
       >
         {hostelData &&
-          hostelData.map((data) => {
+          hostelData.map((data, index) => {
             return (
-              <SwiperSlide className="flex flex-row items-center justify-center">
+              <SwiperSlide
+                key={index}
+                className="flex flex-row items-center justify-center"
+              >
                 <Card
                   name={data.name}
                   location={data.loaction}

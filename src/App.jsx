@@ -1,30 +1,31 @@
-import Navbar from './components/Navbar'
-import {BrowserRouter , Routes, Route} from 'react-router-dom'
-import Register from './pages/Register/index'
-import Home from './pages/Home'
-import Footer from './components/Footer/index'
-import SingleHostelPage from './pages/SingleHostelPage/index'
+import { Route, Routes } from "react-router-dom";
+import "./App.css";
+import Home from "./pages/Home";
+import SignUp from "./pages/signup";
+import SignIn from "./pages/signin";
+import Navbar from "./components/Navbar";
+import Hostels from "./pages/Hostels";
+import AboutUs from "./pages/AboutUs";
+import SingleHostelPage from "./pages/SingleHostelPage";
+import AdminDashboard from "./pages/AdminDashboard";
+
 function App() {
-
   return (
-  <BrowserRouter>
-    <div className='w-full h-full'>
-      <Navbar />
-     
-      <Routes >
-        
-        <Route path='/' element={ <Home /> } />
-        <Route path='/register' element={ <Register /> } />
-        <Route path='/hostel' element={ <SingleHostelPage /> } />
-        
+    <>
+      <Routes>
+        <Route path="/" element={<Navbar />}>
+          <Route path="/" element={<Home />} />
+          <Route path="/hostels" element={<Hostels />} />
+          <Route path="/hostels/:id" element={<SingleHostelPage />} />
+          <Route path="/about-us" element={<AboutUs />} />
+          <Route path="/users/*" element={<AdminDashboard />} />
+        </Route>
       
+        <Route path="/signup" element={<SignUp />} />
+        <Route path="/signin" element={<SignIn />} />
       </Routes>
-
-      <Footer />
-  
-    </div>
-  </BrowserRouter>
-  )
+    </>
+  );
 }
 
-export default App
+export default App;
