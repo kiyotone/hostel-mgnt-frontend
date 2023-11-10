@@ -115,7 +115,7 @@ const Rules = () => {
             <>
               <div className="max-w-md mx-auto bg-white mb-2 shadow-lg flex flex-col items-center justify-center py-4 rounded-md w-[100vw]">
                 <h1 className="text-center text-2xl font-bold mb-10">
-                  Food Schedule
+                  Add New Rules
                 </h1>
 
                 <Formik
@@ -146,7 +146,7 @@ const Rules = () => {
                       type="submit"
                       className="bg-blue-500 hover:bg-blue-600 px-3 py-2 text-xl text-white fw-fw-bolder w-full rounded-md text-cente my-3"
                     >
-                      {"Submit"}
+                      {"Add"}
                     </button>
                   </Form>
                 </Formik>
