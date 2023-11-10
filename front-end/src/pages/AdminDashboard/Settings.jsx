@@ -1,7 +1,10 @@
-const Settings = () => {
-  return (
-    <div className="bg-red-300 w-[22rem] text-black">Setasdasdasdtings</div>
-  );
-};
+import React from 'react'
 
-export default Settings;
+const Settings = () => {
+    
+  return (
+    <div className='bg-red-300 w-[22rem] text-black'>Setasdasdasdtings</div>
+  )
+}
+
+export default Settings

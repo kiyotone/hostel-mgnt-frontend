@@ -1,5 +1,13 @@
-const DashHome = () => {
-  return <div></div>;
-};
+import React from 'react'
 
-export default DashHome;
+const DashHome = () => {
+  return (
+    <div className='text-black'>
+        DasHHIEasda
+        
+
+    </div>
+  )
+}
+
+export default DashHome
