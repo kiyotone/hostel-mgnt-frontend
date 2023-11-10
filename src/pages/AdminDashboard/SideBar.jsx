@@ -23,8 +23,8 @@ const SideBar = () => {
       icon : <FaQuoteLeft />,
     },
     {
-      name: "Category",
-      link: "category",
+      name: "Rules",
+      link: "rules",
       icon : <MdCategory />,
     },
     {
