@@ -1,16 +1,11 @@
 import { FaTrash, FaEdit, FaArrowLeft } from "react-icons/fa";
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import { object, string } from "yup";
-import { useState, useEffect } from "react";
-import {
-  errorToast,
-  loadingToast,
-  successToast,
-} from "../../../services/toastify.service";
-
-// import { getData, getDataWithoutHeader } from "../../../services/axios.service";
+import { useState } from "react";
+import { successToast } from "../../../services/toastify.service";
 // import { useParams } from "react-router-dom";
 import "./food.module.css";
+
 const FoodRoutine = () => {
   // State Management
   // const [title, setTitle] = useState("");
@@ -23,9 +18,7 @@ const FoodRoutine = () => {
 
   // get hostel details
   // const getHostelDetail = async () => {
-  //   const response = await getDataWithoutHeader(
-  //     `hostels/65350ac7d1df3a00f85edea2`
-  //   );
+  //   const response = await getData("/hostels/65350ac7d1df3a00f85edea2");
   //   console.log(response);
   //   if (response.success) {
   //     setHostels(response.hostel);
@@ -84,7 +77,7 @@ const FoodRoutine = () => {
           </div>
           {/* {hostels.timeSchedule.map((schedule) => {
             return (
-              <div key={schedule.id}>
+              <div key={schedule._id}>
                 <hr className="mb-4" />
                 <div className="grid grid-cols-3">
                   <div className="text-center">{schedule.title}</div>
@@ -118,7 +111,7 @@ const FoodRoutine = () => {
           <hr />
         </div>
       </div>
-      {showForm ? (
+      {showForm && (
         <div className="fixed bg-black/[0.85] z-10 h-[100vh] top-0 left-0 w-[100vw]">
           <div className="flex items-center flex-col gap-8 justify-center h-full max-w-[768px] mx-auto">
             <button
@@ -148,9 +141,9 @@ const FoodRoutine = () => {
                       type="text"
                       name="title"
                       className="w-full"
-                      onSubmit={(e) => {
-                        setTitle(e.target.value);
-                      }}
+                      // onSubmit={(e) => {
+                      //   setTitle(e.target.value);
+                      // }}
                     ></Field>
                     <label htmlFor="title">Food Name</label>
                     <ErrorMessage
@@ -164,9 +157,9 @@ const FoodRoutine = () => {
                       placeholder=""
                       type="text"
                       name="time"
-                      onSubmit={(e) => {
-                        setTime(e.target.value);
-                      }}
+                      // onSubmit={(e) => {
+                      //   setTime(e.target.value);
+                      // }}
                     ></Field>
                     <label htmlFor="time">Time</label>
                     <ErrorMessage
@@ -186,8 +179,6 @@ const FoodRoutine = () => {
             </div>
           </div>
         </div>
-      ) : (
-        ""
       )}
     </main>
   );

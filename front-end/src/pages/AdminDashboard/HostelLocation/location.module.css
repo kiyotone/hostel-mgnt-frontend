@@ -3,7 +3,7 @@ input[type="email"],
 input[type="password"] {
   border: 1px solid #ccc;
   border-radius: 0.25rem;
-  padding: 0.5rem 1rem;
+  padding: 0.75rem 1rem;
   width: 100%;
   margin-bottom: 1rem;
   transition: border-color 0.3s;
@@ -11,10 +11,12 @@ input[type="password"] {
 
 }
 
+
+
 /* Style the labels for floating effect */
 label {
   position: absolute;
-  top: 0.5rem;
+  top: 0.75rem;
   left: 1rem;
   transition: all 0.3s;
   font-size: 1rem;

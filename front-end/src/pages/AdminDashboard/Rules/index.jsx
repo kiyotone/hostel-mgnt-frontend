@@ -1,7 +1,7 @@
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import { object, string } from "yup";
 import { FaTrash, FaEdit, FaArrowLeft } from "react-icons/fa";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { successToast } from "../../../services/toastify.service";
 // import { getData } from "../../../services/axios.service";
 // import { useParams } from "react-router-dom";
