@@ -2,12 +2,13 @@ import { ErrorMessage, Field, Form, Formik } from "formik";
 import { object, string } from "yup";
 import { FaTrash, FaEdit, FaArrowLeft } from "react-icons/fa";
 import { useState, useEffect } from "react";
-import { getData } from "../../../services/axios.service";
-import { useParams } from "react-router-dom";
+import { successToast } from "../../../services/toastify.service";
+// import { getData } from "../../../services/axios.service";
+// import { useParams } from "react-router-dom";
 
 const Rules = () => {
   const [showForm, setShowForm] = useState(false);
-  const [hostels, setHostels] = useState([]);
+  // const [hostels, setHostels] = useState([]);
 
   const initialValue = {
     rules: "",
@@ -19,24 +20,31 @@ const Rules = () => {
 
   const handleSubmitForm = async (values) => {
     console.log(values);
+    setShowForm(false);
+    successToast("Rule Added Successfully!");
+  };
+
+  // handle Delete
+  const handleDelete = () => {
+    successToast("Rule Deleted Successfully!");
   };
 
   // Request Data from Backend
-  const { id } = useParams();
+  // const { id } = useParams();
 
-  const getHostelDetail = async () => {
-    const response = await getData(`hostels/${id}`);
-    console.log(response);
-    if (response.success) {
-      setHostels(response);
-      console.log(hostels);
-    }
-  };
+  // const getHostelDetail = async () => {
+  //   const response = await getData(`/hostels/65350ac7d1df3a00f85edea2`);
+  //   console.log(response);
+  //   if (response.success) {
+  //     setHostels(response.hostel);
+  //     console.log(hostels);
+  //   }
+  // };
 
-  useEffect(() => {
-    getHostelDetail();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  // useEffect(() => {
+  //   getHostelDetail();
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, []);
 
   return (
     <main className="max-w-[1080px] mx-auto">
@@ -58,12 +66,12 @@ const Rules = () => {
             <div className="text-center">Rules</div>
             <div className="text-center">Actions</div>
           </div>
-          {hostels.map((hostel) => {
+          {/* {hostels.rulesAndRegulation.map((rule) => {
             return (
-              <div key={hostel._id}>
+              <div key={rule}>
                 <hr className="mb-4" />
                 <div className="grid grid-cols-2">
-                  <div className="text-center">{hostel.name}</div>
+                  <div className="text-center">{rule}</div>
                   <div className="flex items-center justify-center gap-4">
                     <FaTrash />
                     <FaEdit />
@@ -71,27 +79,43 @@ const Rules = () => {
                 </div>
               </div>
             );
-          })}
+          })} */}
+          <div>
+            <hr className="mb-4" />
+            <div className="grid grid-cols-2">
+              <div className="text-center">No one is allowed to make noise</div>
+              <div className="flex items-center justify-center gap-4">
+                <FaTrash
+                  className="cursor-pointer w-[1.4rem] h-[1.4rem]"
+                  onClick={handleDelete}
+                />
+                <FaEdit
+                  className="cursor-pointer w-[1.4rem] h-[1.4rem]"
+                  onClick={() => setShowForm(true)}
+                />
+              </div>
+            </div>
+          </div>
 
           <hr />
         </div>
       </div>
-      {showForm ? (
-        <div className="fixed bg-white w-full z-10 h-[100vh] top-[21%] max-w-[1080px]">
-          <div className="fex w-full items-center justify-center">
+      {showForm && (
+        <div className="fixed bg-black/[0.85] z-10 h-[100vh] top-0 left-0 w-[100vw]">
+          <div className="flex items-center flex-col gap-8 justify-center h-full max-w-[768px] mx-auto z-20">
             <button
               onClick={() => {
                 setShowForm(false);
               }}
-              className="ml-8 flex gap-2 items-center justify-center"
+              className="text-white mr-auto px-4 flex gap-2 items-center justify-center"
             >
               <FaArrowLeft />
               Back
             </button>
             <>
-              <div className="max-w-md mx-auto mb-2 shadow-lg flex flex-col items-center justify-center py-4 rounded-md w-full">
-                <h1 className="text-center text-3xl font-bold mb-10">
-                  Rules and Regulations
+              <div className="max-w-md mx-auto bg-white mb-2 shadow-lg flex flex-col items-center justify-center py-4 rounded-md w-[100vw]">
+                <h1 className="text-center text-2xl font-bold mb-10">
+                  Food Schedule
                 </h1>
 
                 <Formik
@@ -130,8 +154,6 @@ const Rules = () => {
             </>
           </div>
         </div>
-      ) : (
-        ""
       )}
     </main>
   );

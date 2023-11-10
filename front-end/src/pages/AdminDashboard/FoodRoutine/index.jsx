@@ -2,47 +2,63 @@ import { FaTrash, FaEdit, FaArrowLeft } from "react-icons/fa";
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import { object, string } from "yup";
 import { useState, useEffect } from "react";
-import { getData } from "../../../services/axios.service";
+import {
+  errorToast,
+  loadingToast,
+  successToast,
+} from "../../../services/toastify.service";
+
+// import { getData, getDataWithoutHeader } from "../../../services/axios.service";
 // import { useParams } from "react-router-dom";
 import "./food.module.css";
 const FoodRoutine = () => {
   // State Management
-  const [foodName, setFoodName] = useState("");
-  const [foodTime, setFoodTime] = useState("");
+  // const [title, setTitle] = useState("");
+  // const [time, setTime] = useState("");
   const [showForm, setShowForm] = useState(false);
-  const [hostels, setHostels] = useState([]);
+  // const [hostels, setHostels] = useState([]);
 
   // Request Data from Backend
   // const { id } = useParams();
 
-  // get single hostel details
-  const getSingleHostelDetail = async () => {
-    const response = await getData(`hostels/65350ac7d1df3a00f85edea2`);
-    console.log(response.hostel);
-    if (response.success) {
-      setHostels(response.hostel);
-    }
-  };
+  // get hostel details
+  // const getHostelDetail = async () => {
+  //   const response = await getDataWithoutHeader(
+  //     `hostels/65350ac7d1df3a00f85edea2`
+  //   );
+  //   console.log(response);
+  //   if (response.success) {
+  //     setHostels(response.hostel);
+  //     console.log(hostels);
+  //   }
+  // };
 
-  useEffect(() => {
-    getSingleHostelDetail();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  // useEffect(() => {
+  //   getHostelDetail();
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, []);
 
   // Formik Validation
   const initialValue = {
-    name: "",
+    title: "",
     time: "",
   };
 
   const validationSchema = object().shape({
-    name: string().required("Food Name is required"),
+    title: string().required("Food Name is required"),
     time: string().required("Time is required"),
   });
 
   // On Submit
   const handleSubmitForm = async (values) => {
     console.log(values);
+    setShowForm(false);
+    successToast("Routine Added Successfully!");
+  };
+
+  // handle Delete
+  const handleDelete = () => {
+    successToast("Routine Deleted Successfully!");
   };
 
   return (
@@ -66,13 +82,13 @@ const FoodRoutine = () => {
             <div className="text-center">Time</div>
             <div className="text-center">Actions</div>
           </div>
-          {hostels.timeSchedule.map((schedule) => {
+          {/* {hostels.timeSchedule.map((schedule) => {
             return (
               <div key={schedule.id}>
                 <hr className="mb-4" />
                 <div className="grid grid-cols-3">
                   <div className="text-center">{schedule.title}</div>
-                  <div className="text-center">{schedule.time}</div>
+                  <div className="text-center">7:00 AM</div>
                   <div className="flex items-center justify-center gap-4">
                     <FaTrash />
                     <FaEdit />
@@ -80,78 +96,94 @@ const FoodRoutine = () => {
                 </div>
               </div>
             );
-          })}
+          })} */}
+          <div>
+            <hr className="mb-4" />
+            <div className="grid grid-cols-3">
+              <div className="text-center">Breakfast</div>
+              <div className="text-center">7:00 AM</div>
+              <div className="flex items-center justify-center gap-4">
+                <FaTrash
+                  className="cursor-pointer w-[1.4rem] h-[1.4rem]"
+                  onClick={handleDelete}
+                />
+                <FaEdit
+                  className="cursor-pointer w-[1.4rem] h-[1.4rem]"
+                  onClick={() => setShowForm(true)}
+                />
+              </div>
+            </div>
+          </div>
 
           <hr />
         </div>
       </div>
       {showForm ? (
-        <div className="fixed bg-white w-full z-10 h-[100vh] top-[21%] max-w-[1080px]">
-          <div className="fex w-full items-center justify-center">
+        <div className="fixed bg-black/[0.85] z-10 h-[100vh] top-0 left-0 w-[100vw]">
+          <div className="flex items-center flex-col gap-8 justify-center h-full max-w-[768px] mx-auto">
             <button
               onClick={() => {
                 setShowForm(false);
               }}
-              className="ml-8 flex gap-2 items-center justify-center"
+              className="text-white mr-auto px-4 flex gap-2 items-center justify-center"
             >
               <FaArrowLeft />
               Back
             </button>
-            <>
-              <div className="max-w-md mx-auto mb-2 shadow-lg flex flex-col items-center justify-center py-4 rounded-md w-full">
-                <h1 className="text-center text-2xl font-bold mb-10">
-                  Food Schedule
-                </h1>
 
-                <Formik
-                  initialValues={initialValue}
-                  validationSchema={validationSchema}
-                  onSubmit={handleSubmitForm}
-                >
-                  <Form className="w-[80%]">
-                    <div className="mb-6 relative w-full">
-                      <Field
-                        placeholder=""
-                        type="text"
-                        name="title"
-                        className="w-full"
-                        onSubmit={(e) => {
-                          setFoodName(e.target.value);
-                        }}
-                      ></Field>
-                      <label htmlFor="title">Food Name</label>
-                      <ErrorMessage
-                        component="div"
-                        name="title"
-                        className="text-red-500 absolute text-xs bottom-[-5px]"
-                      />
-                    </div>
-                    <div className="mb-6 relative">
-                      <Field
-                        placeholder=""
-                        type="text"
-                        name="time"
-                        onSubmit={(e) => {
-                          setFoodTime(e.target.value);
-                        }}
-                      ></Field>
-                      <label htmlFor="time">Time</label>
-                      <ErrorMessage
-                        component="div"
-                        name="time"
-                        className="text-red-500 absolute text-xs bottom-[-5px]"
-                      />
-                    </div>
-                    <button
-                      type="submit"
-                      className="bg-blue-500 hover:bg-blue-600 px-3 py-2 text-lg text-white fw-fw-bolder w-full rounded-md text-cente my-3"
-                    >
-                      {"Add to Routine"}
-                    </button>
-                  </Form>
-                </Formik>
-              </div>
-            </>
+            <div className="max-w-md mx-auto bg-white mb-2 shadow-lg flex flex-col items-center justify-center py-4 rounded-md w-[100vw]">
+              <h1 className="text-center text-2xl font-bold mb-10">
+                Food Schedule
+              </h1>
+
+              <Formik
+                initialValues={initialValue}
+                validationSchema={validationSchema}
+                onSubmit={handleSubmitForm}
+              >
+                <Form className="w-[80%]">
+                  <div className="mb-6 relative w-full">
+                    <Field
+                      placeholder=""
+                      type="text"
+                      name="title"
+                      className="w-full"
+                      onSubmit={(e) => {
+                        setTitle(e.target.value);
+                      }}
+                    ></Field>
+                    <label htmlFor="title">Food Name</label>
+                    <ErrorMessage
+                      component="div"
+                      name="title"
+                      className="text-red-500 absolute text-xs bottom-[-5px]"
+                    />
+                  </div>
+                  <div className="mb-6 relative">
+                    <Field
+                      placeholder=""
+                      type="text"
+                      name="time"
+                      onSubmit={(e) => {
+                        setTime(e.target.value);
+                      }}
+                    ></Field>
+                    <label htmlFor="time">Time</label>
+                    <ErrorMessage
+                      component="div"
+                      name="time"
+                      className="text-red-500 absolute text-xs bottom-[-5px]"
+                    />
+                  </div>
+                  <button
+                    type="submit"
+                    className="bg-blue-500 hover:bg-blue-600 px-3 py-2 text-lg text-white fw-fw-bolder w-full rounded-md text-cente my-3"
+                  >
+                    {"Add to Routine"}
+                  </button>
+                </Form>
+              </Formik>
+            </div>
           </div>
         </div>
       ) : (
