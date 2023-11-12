@@ -20,7 +20,6 @@ function App() {
           <Route path="/about-us" element={<AboutUs />} />
           <Route path="/users/*" element={<AdminDashboard />} />
         </Route>
-      
         <Route path="/signup" element={<SignUp />} />
         <Route path="/signin" element={<SignIn />} />
       </Routes>
