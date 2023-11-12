@@ -101,10 +101,10 @@ const HostelImages = () => {
                     )
                 }
                 
-                <div {...getRootProps({className:` border-gray-200 text-gray-500 border-dashed border-[.1rem] w-[12rem] h-[12rem] rounded-md flex flex-col items-center pt-[4rem] cursor-pointer`})} >
+                <div {...getRootProps({className:` border-gray-600 text-gray-600 border-dashed border-[.1rem] w-[12rem] h-[12rem] rounded-md flex flex-col items-center pt-[4rem] cursor-pointer`})} >
                     <input {...getInputProps()}  />
                         <BiUpload className='text-[2.5rem]'/>
-                        <p >Upload Your Image</p>
+                        <p >Click or Drag Your Image</p>
 
                     
                 </div>

@@ -56,6 +56,15 @@ export const deleteData=async(url,token)=>{
         console.log(error)
     }
 }
+export const deleteDataAtParams=async(url,data)=>{
+
+    try {
+        const response=await axios.delete(`${serverUrl}/${url}/${data.id}`)
+        return response.data
+    } catch (error) {
+        console.log(error)
+    }
+}
 
 
 export const getDataWithoutHeader=async(url)=>{
@@ -75,6 +84,16 @@ export const updateDataWithHeader=async(url,data,token)=>{
                 Authorization:`Bearer ${token}`
             }
         })
+        return response.data
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+
+export const updateDataWitouthHeader=async(url,data)=>{
+    try {
+        const response=await axios.patch(`${serverUrl}/${url}`,data)
         return response.data
     } catch (error) {
         console.log(error)
