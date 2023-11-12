@@ -5,6 +5,7 @@ import Settings from './Settings'
 import { useSelector } from 'react-redux'
 import DashHome from './DashHome'
 import Rules from './Rules'
+import HostelImages from './HostelImages'
 
 const AdminDashboard = () => {
   const usetId = useSelector((state)=>state.auth.userId);
@@ -22,6 +23,7 @@ const AdminDashboard = () => {
           <Route path={`/${usetId}/settings`} element={<Settings />}  />
           <Route path={`/${usetId}/faq`} element={<Settings />}  />
           <Route path={`/${usetId}/rules`} element={<Rules />}  />
+          <Route path={`/${usetId}/hostel-images`} element={<HostelImages />}  />
           <Route path={`/${usetId}/logout`} element={<Settings />}  />
         
         </Routes>

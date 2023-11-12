@@ -17,7 +17,7 @@ export const postDataWithHeader=async(url,data,token)=>{
     try {
         const response=await axios.post(`${serverUrl}/${url}`,data,{
             headers:{
-                Authorization:`Bearer ${token}`
+                Authorization:`Bearer ${token}` 
             }
         })
         return response.data
@@ -67,7 +67,6 @@ export const getDataWithoutHeader=async(url)=>{
     }
 
 }
-
 
 export const updateDataWithHeader=async(url,data,token)=>{
     try {

@@ -28,6 +28,11 @@ const SideBar = () => {
       icon : <MdCategory />,
     },
     {
+      name: "Hostel Images",
+      link: "hostel-images",
+      icon : <MdCategory />,
+    },
+    {
       name: "Settings",
       link: "settings",
       icon : <FiSettings />,

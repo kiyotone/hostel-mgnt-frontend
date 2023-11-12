@@ -16,7 +16,12 @@ const SignIn = () => {
     password: "",
   };
 
-  
+  const validationSchema = object().shape({
+    email: string().required("Email field is required"),
+    password: string()
+      .min(6, "password must be of 6 digit")
+      .required("Password field is required"),
+  });
 
 
   const handleSubmit=async(values)=>{
