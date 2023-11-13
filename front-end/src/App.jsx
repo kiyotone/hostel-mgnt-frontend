@@ -19,7 +19,7 @@ function App() {
           <Route path="/hostels" element={<Hostels />} />
           <Route path="/hostels/:id" element={<SingleHostelPage />} />
           <Route path="/about-us" element={<AboutUs />} />
-          <Route path="/users/*" element={<AdminDashboard />} />
+          <Route path="/users" element={<AdminDashboard />} />
           <Route path="/location" element={<HostelLocation />} />
         </Route>
         <Route path="/signup" element={<SignUp />} />

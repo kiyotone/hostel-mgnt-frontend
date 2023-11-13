@@ -1,6 +1,6 @@
-body{
-    background-color: #f3f3f3;
-    color: black;
-    font-family: 'Roboto', sans-serif;
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Open+Sans:wght@300;400&display=swap');
 
+* {
+  font-family: 'Montserrat';
+  /* font-family: 'Open Sans'; */
 }
