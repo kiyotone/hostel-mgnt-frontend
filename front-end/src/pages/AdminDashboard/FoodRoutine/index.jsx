@@ -11,6 +11,7 @@ import {
 } from "../../../services/axios.service";
 import { useSelector } from "react-redux";
 import { successToast } from "../../../services/toastify.service";
+import { Button } from "@mui/material";
 
 const FoodRoutine = () => {
   // State Management
@@ -23,7 +24,7 @@ const FoodRoutine = () => {
 
   // get hostel details
   const getAllFoodItems = async () => {
-    const response = await addData(`/time-hostel`, {
+    const response = await addData(`time-hostel`, {
       hostelId: "65350ac7d1df3a00f85edea2",
     });
     if (response.success) {
@@ -102,7 +103,7 @@ const FoodRoutine = () => {
   };
 
   return (
-    <main className="max-w-[1080px] mx-auto">
+    <main className="max-w-[1080px] mx-auto mt-4 mb-[10rem]">
       <div className="relative">
         <h1 className="text-center font-semibold text-2xl mb-2">
           Food Routine
@@ -110,15 +111,16 @@ const FoodRoutine = () => {
         <div className="flex flex-col max-w-[768px] mx-auto mt-2">
           {/* Sunday Food Items */}
           <h1 className="text-xl mt-5">Category: Sunday</h1>
-          <button
-            className="bg-[#2563eb] text-white px-8 py-2 rounded-[5rem] m-2 hover:bg-[#1c3a7d] w-[13rem]"
+          <Button
+            variant="contained"
+            sx={{ width: "10rem", margin: "20px 0" }}
             onClick={() => {
               setShowForm(true);
               setCategory("sunday");
             }}
           >
             Add New Item
-          </button>
+          </Button>
           <div className="grid grid-cols-3 font-semibold">
             <div className="text-center">Time</div>
             <div className="text-center">Food Name</div>
@@ -154,15 +156,16 @@ const FoodRoutine = () => {
 
           {/* Monday food Items */}
           <h1 className="text-xl mt-5">Category: Monday</h1>
-          <button
-            className="bg-[#2563eb] text-white px-8 py-2 rounded-[5rem] m-2 hover:bg-[#1c3a7d] w-[13rem]"
+          <Button
+            variant="contained"
+            sx={{ width: "10rem", margin: "20px 0" }}
             onClick={() => {
               setShowForm(true);
               setCategory("monday");
             }}
           >
             Add New Item
-          </button>
+          </Button>
           <div className="grid grid-cols-3 font-semibold">
             <div className="text-center">Time</div>
             <div className="text-center">Food Name</div>
@@ -198,15 +201,16 @@ const FoodRoutine = () => {
 
           {/* Tuesday Food Items */}
           <h1 className="text-xl mt-5">Category: Tuesday</h1>
-          <button
-            className="bg-[#2563eb] text-white px-8 py-2 rounded-[5rem] m-2 hover:bg-[#1c3a7d] w-[13rem]"
+          <Button
+            variant="contained"
+            sx={{ width: "10rem", margin: "20px 0" }}
             onClick={() => {
               setShowForm(true);
               setCategory("tuesday");
             }}
           >
             Add New Item
-          </button>
+          </Button>
           <div className="grid grid-cols-3 font-semibold">
             <div className="text-center">Time</div>
             <div className="text-center">Food Name</div>
@@ -242,15 +246,16 @@ const FoodRoutine = () => {
 
           {/* Wednesday Food Items */}
           <h1 className="text-xl mt-5">Category: Wednesday</h1>
-          <button
-            className="bg-[#2563eb] text-white px-8 py-2 rounded-[5rem] m-2 hover:bg-[#1c3a7d] w-[13rem]"
+          <Button
+            variant="contained"
+            sx={{ width: "10rem", margin: "20px 0" }}
             onClick={() => {
               setShowForm(true);
               setCategory("wednesday");
             }}
           >
             Add New Item
-          </button>
+          </Button>
           <div className="grid grid-cols-3 font-semibold">
             <div className="text-center">Time</div>
             <div className="text-center">Food Name</div>
@@ -286,15 +291,16 @@ const FoodRoutine = () => {
 
           {/* Thursday Food Items */}
           <h1 className="text-xl mt-5">Category: Thursday</h1>
-          <button
-            className="bg-[#2563eb] text-white px-8 py-2 rounded-[5rem] m-2 hover:bg-[#1c3a7d] w-[13rem]"
+          <Button
+            variant="contained"
+            sx={{ width: "10rem", margin: "20px 0" }}
             onClick={() => {
               setShowForm(true);
               setCategory("thursday");
             }}
           >
             Add New Item
-          </button>
+          </Button>
           <div className="grid grid-cols-3 font-semibold">
             <div className="text-center">Time</div>
             <div className="text-center">Food Name</div>
@@ -330,15 +336,16 @@ const FoodRoutine = () => {
 
           {/* Friday Food Items */}
           <h1 className="text-xl mt-5">Category: Friday</h1>
-          <button
-            className="bg-[#2563eb] text-white px-8 py-2 rounded-[5rem] m-2 hover:bg-[#1c3a7d] w-[13rem]"
+          <Button
+            variant="contained"
+            sx={{ width: "10rem", margin: "20px 0" }}
             onClick={() => {
               setShowForm(true);
               setCategory("friday");
             }}
           >
             Add New Item
-          </button>
+          </Button>
           <div className="grid grid-cols-3 font-semibold">
             <div className="text-center">Time</div>
             <div className="text-center">Food Name</div>
@@ -374,15 +381,16 @@ const FoodRoutine = () => {
 
           {/* Saturday Food Items */}
           <h1 className="text-xl mt-5">Category: Saturday</h1>
-          <button
-            className="bg-[#2563eb] text-white px-8 py-2 rounded-[5rem] m-2 hover:bg-[#1c3a7d] w-[13rem]"
+          <Button
+            variant="contained"
+            sx={{ width: "10rem", margin: "20px 0" }}
             onClick={() => {
               setShowForm(true);
               setCategory("saturday");
             }}
           >
             Add New Item
-          </button>
+          </Button>
           <div className="grid grid-cols-3 font-semibold">
             <div className="text-center">Time</div>
             <div className="text-center">Food Name</div>

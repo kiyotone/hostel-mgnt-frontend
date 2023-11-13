@@ -1,8 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-// import App from "./App.jsx";
-import FoodRoutine from "./pages/AdminDashboard/FoodRoutine/index.jsx";
-// import HostelLocation from "./pages/AdminDashboard/HostelLocation/index.jsx";
+import App from "./App.jsx";
 import "./index.css";
 import { persistor, store } from "./store/index.js";
 import "react-toastify/dist/ReactToastify.css";
@@ -23,9 +21,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
             <GoogleOAuthProvider
               clientId={import.meta.env.VITE_GOOGLE_CLIENT_ID}
             >
-              {/* <App /> */}
-              <FoodRoutine />
-              {/* <HostelLocation /> */}
+              <App />
               <ToastContainer />
             </GoogleOAuthProvider>
           </BrowserRouter>

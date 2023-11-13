@@ -1,3 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&display=swap');
+
+* {
+  font-family: 'Open Sans';
+}
 input[type="text"],
 input[type="email"],
 input[type="password"] {
@@ -14,16 +19,7 @@ input[type="password"] {
 
 
 /* Style the labels for floating effect */
-label {
-  position: absolute;
-  top: 0.75rem;
-  left: 1rem;
-  transition: all 0.3s;
-  font-size: 1rem;
-  color: #a5a5a5;
-  pointer-events: none;
-  padding: 0 4px;
-}
+
 
 /* Move the label up when input is focused */
 input:focus + label,

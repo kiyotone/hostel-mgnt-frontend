@@ -8,6 +8,7 @@ import Hostels from "./pages/Hostels";
 import AboutUs from "./pages/AboutUs";
 import SingleHostelPage from "./pages/SingleHostelPage";
 import AdminDashboard from "./pages/AdminDashboard";
+import HostelLocation from "./pages/AdminDashboard/HostelLocation";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route path="/hostels/:id" element={<SingleHostelPage />} />
           <Route path="/about-us" element={<AboutUs />} />
           <Route path="/users/*" element={<AdminDashboard />} />
+          <Route path="/location" element={<HostelLocation />} />
         </Route>
         <Route path="/signup" element={<SignUp />} />
         <Route path="/signin" element={<SignIn />} />
