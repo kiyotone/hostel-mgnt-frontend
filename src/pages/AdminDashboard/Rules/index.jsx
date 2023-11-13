@@ -171,8 +171,9 @@ const Rules = () => {
                 Rules And Regulations
                 
             </div>
-                <div className='pt-10 pl-10'>
-
+                <div className='  pl-10'>
+                        
+                <button className='bg-[#3140b6] text-white p-2 mb-6 rounded-md mt-10' onClick={handleOpenAdd}>Add New</button>   
 
                         { myRules.length > 0  ? 
                             <div className=''>
@@ -201,17 +202,16 @@ const Rules = () => {
                             </div>
                             )}
 
-                            <button className='bg-[#3140b6] text-white p-2 rounded-md mt-10' onClick={handleOpenAdd}>Add New</button>
-                        
+                            
                             </div>
 
                         :
                         <div>
                             
+                                          
                             <div className='text-[1.5rem] pb-4'>
                                 You Have No Rules And Regulations Set 
                             </div>
-                            <button className='bg-[#3140b6] text-white p-2 rounded-md mt-10' onClick={handleOpenAdd}>Add New</button>                 
                             
                         </div>
                     
