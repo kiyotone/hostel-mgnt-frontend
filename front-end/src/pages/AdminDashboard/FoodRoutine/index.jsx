@@ -83,8 +83,8 @@ const FoodRoutine = () => {
     const response = await updateDataWithHeader(
       `time/${updateId}`,
       {
-        title: data.title,
-        time: data.time,
+        title: data?.title,
+        time: data?.time,
         category: category,
       },
       token
@@ -92,8 +92,8 @@ const FoodRoutine = () => {
     if (response.success) {
       allFood.map((food) => {
         if (food._id === updateId) {
-          food.title = data.title;
-          food.time = data.time;
+          food.title = data?.title;
+          food.time = data?.time;
         }
         return food;
       });
@@ -133,8 +133,8 @@ const FoodRoutine = () => {
                   <div key={food._id} className="relative">
                     <hr className="m-2" />
                     <div className="grid grid-cols-3">
-                      <div className="text-center">{food.time}</div>
-                      <div className="text-center">{food.title}</div>
+                      <div className="text-center">{food?.time}</div>
+                      <div className="text-center">{food?.title}</div>
                       <div className="flex items-center justify-center gap-4">
                         <FaTrash
                           className="cursor-pointer w-[1.4rem] h-[1.4rem]"
@@ -178,8 +178,8 @@ const FoodRoutine = () => {
                   <div key={food._id} className="relative">
                     <hr className="m-2" />
                     <div className="grid grid-cols-3">
-                      <div className="text-center">{food.time}</div>
-                      <div className="text-center">{food.title}</div>
+                      <div className="text-center">{food?.time}</div>
+                      <div className="text-center">{food?.title}</div>
                       <div className="flex items-center justify-center gap-4">
                         <FaTrash
                           className="cursor-pointer w-[1.4rem] h-[1.4rem]"
@@ -223,8 +223,8 @@ const FoodRoutine = () => {
                   <div key={food._id} className="relative">
                     <hr className="m-2" />
                     <div className="grid grid-cols-3">
-                      <div className="text-center">{food.time}</div>
-                      <div className="text-center">{food.title}</div>
+                      <div className="text-center">{food?.time}</div>
+                      <div className="text-center">{food?.title}</div>
                       <div className="flex items-center justify-center gap-4">
                         <FaTrash
                           className="cursor-pointer w-[1.4rem] h-[1.4rem]"
@@ -268,8 +268,8 @@ const FoodRoutine = () => {
                   <div key={food._id} className="relative">
                     <hr className="m-2" />
                     <div className="grid grid-cols-3">
-                      <div className="text-center">{food.time}</div>
-                      <div className="text-center">{food.title}</div>
+                      <div className="text-center">{food?.time}</div>
+                      <div className="text-center">{food?.title}</div>
                       <div className="flex items-center justify-center gap-4">
                         <FaTrash
                           className="cursor-pointer w-[1.4rem] h-[1.4rem]"
@@ -313,8 +313,8 @@ const FoodRoutine = () => {
                   <div key={food._id} className="relative">
                     <hr className="m-2" />
                     <div className="grid grid-cols-3">
-                      <div className="text-center">{food.time}</div>
-                      <div className="text-center">{food.title}</div>
+                      <div className="text-center">{food?.time}</div>
+                      <div className="text-center">{food?.title}</div>
                       <div className="flex items-center justify-center gap-4">
                         <FaTrash
                           className="cursor-pointer w-[1.4rem] h-[1.4rem]"
@@ -358,8 +358,8 @@ const FoodRoutine = () => {
                   <div key={food._id} className="relative">
                     <hr className="m-2" />
                     <div className="grid grid-cols-3">
-                      <div className="text-center">{food.time}</div>
-                      <div className="text-center">{food.title}</div>
+                      <div className="text-center">{food?.time}</div>
+                      <div className="text-center">{food?.title}</div>
                       <div className="flex items-center justify-center gap-4">
                         <FaTrash
                           className="cursor-pointer w-[1.4rem] h-[1.4rem]"
@@ -403,8 +403,8 @@ const FoodRoutine = () => {
                   <div key={food._id} className="relative">
                     <hr className="m-2" />
                     <div className="grid grid-cols-3">
-                      <div className="text-center">{food.time}</div>
-                      <div className="text-center">{food.title}</div>
+                      <div className="text-center">{food?.time}</div>
+                      <div className="text-center">{food?.title}</div>
                       <div className="flex items-center justify-center gap-4">
                         <FaTrash
                           className="cursor-pointer w-[1.4rem] h-[1.4rem]"
@@ -449,38 +449,42 @@ const FoodRoutine = () => {
                 validationSchema={validationSchema}
                 onSubmit={handleCreateTime}
               >
-                <Form className="w-[80%]">
-                  <div className="mb-6 relative">
-                    <Field placeholder="" type="text" name="time"></Field>
-                    <label htmlFor="time">Time</label>
-                    <ErrorMessage
-                      component="div"
-                      name="time"
-                      className="text-red-500 absolute text-xs bottom-[-5px]"
-                    />
-                  </div>
-                  <div className="mb-6 relative w-full">
-                    <Field
-                      placeholder=""
-                      type="text"
-                      name="title"
-                      className="w-full"
-                    ></Field>
-                    <label htmlFor="title">Food Name</label>
-                    <ErrorMessage
-                      component="div"
-                      name="title"
-                      className="text-red-500 absolute text-xs bottom-[-5px]"
-                    />
-                  </div>
+                {({ isSubmitting }) => {
+                  return (
+                    <Form className="w-[80%]">
+                      <div className="mb-6 relative">
+                        <Field placeholder="" type="text" name="time"></Field>
+                        <label htmlFor="time">Time</label>
+                        <ErrorMessage
+                          component="div"
+                          name="time"
+                          className="text-red-500 absolute text-xs bottom-[-5px]"
+                        />
+                      </div>
+                      <div className="mb-6 relative w-full">
+                        <Field
+                          placeholder=""
+                          type="text"
+                          name="title"
+                          className="w-full"
+                        ></Field>
+                        <label htmlFor="title">Food Name</label>
+                        <ErrorMessage
+                          component="div"
+                          name="title"
+                          className="text-red-500 absolute text-xs bottom-[-5px]"
+                        />
+                      </div>
 
-                  <button
-                    type="submit"
-                    className="bg-blue-500 hover:bg-blue-600 px-3 py-2 text-lg text-white fw-fw-bolder w-full rounded-md text-cente my-3"
-                  >
-                    {"Add to Routine"}
-                  </button>
-                </Form>
+                      <button
+                        type="submit"
+                        className="bg-blue-500 hover:bg-blue-600 px-3 py-2 text-lg text-white fw-fw-bolder w-full rounded-md text-cente my-3"
+                      >
+                        {isSubmitting ? "Adding..." : "Add to Routine"}
+                      </button>
+                    </Form>
+                  );
+                }}
               </Formik>
             </div>
           </div>
@@ -505,42 +509,50 @@ const FoodRoutine = () => {
               </h1>
 
               <Formik
-                initialValues={initialValue}
+                initialValues={allFood.find((food) => food._id === updateId)}
                 validationSchema={validationSchema}
                 onSubmit={handleUpdateTime}
               >
-                <Form className="w-[80%]">
-                  <div className="mb-6 relative">
-                    <Field placeholder="" type="text" name="time"></Field>
-                    <label htmlFor="time">Time</label>
-                    <ErrorMessage
-                      component="div"
-                      name="time"
-                      className="text-red-500 absolute text-xs bottom-[-5px]"
-                    />
-                  </div>
-                  <div className="mb-6 relative w-full">
-                    <Field
-                      placeholder=""
-                      type="text"
-                      name="title"
-                      className="w-full"
-                    ></Field>
-                    <label htmlFor="title">Food Name</label>
-                    <ErrorMessage
-                      component="div"
-                      name="title"
-                      className="text-red-500 absolute text-xs bottom-[-5px]"
-                    />
-                  </div>
+                {({ values, isSubmitting }) => {
+                  return (
+                    <Form className="w-[80%]">
+                      <div className="mb-6 relative">
+                        <p className="mb-2">Time</p>
+                        <Field
+                          type="text"
+                          name="time"
+                          value={values?.time}
+                        ></Field>
+                        <ErrorMessage
+                          component="div"
+                          name="time"
+                          className="text-red-500 absolute text-xs bottom-[-5px]"
+                        />
+                      </div>
+                      <div className="mb-6 relative w-full">
+                        <p className="mb-2">Food Name</p>
+                        <Field
+                          type="text"
+                          name="title"
+                          value={values?.title}
+                          className="w-full"
+                        ></Field>
+                        <ErrorMessage
+                          component="div"
+                          name="title"
+                          className="text-red-500 absolute text-xs bottom-[-5px]"
+                        />
+                      </div>
 
-                  <button
-                    type="submit"
-                    className="bg-blue-500 hover:bg-blue-600 px-3 py-2 text-lg text-white fw-fw-bolder w-full rounded-md text-cente my-3"
-                  >
-                    {"Update Routine"}
-                  </button>
-                </Form>
+                      <button
+                        type="submit"
+                        className="bg-blue-500 hover:bg-blue-600 px-3 py-2 text-lg text-white fw-fw-bolder w-full rounded-md text-cente my-3"
+                      >
+                        {isSubmitting ? "Updating..." : "Update Routine"}
+                      </button>
+                    </Form>
+                  );
+                }}
               </Formik>
             </div>
           </div>
