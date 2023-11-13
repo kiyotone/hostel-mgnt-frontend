@@ -18,9 +18,14 @@ const SideBar = () => {
       icon : <LuLayoutDashboard />,
     },
     {
-      name: "Faqs",
-      link: "faqs",
+      name: "Food Routine",
+      link: "food-routine",
       icon : <FaQuoteLeft />,
+    },
+    {
+      name: "Location",
+      link: "location",
+      icon : <MdCategory />,
     },
     {
       name: "Rules",
@@ -37,11 +42,7 @@ const SideBar = () => {
       link: "settings",
       icon : <FiSettings />,
     },
-    {
-      name: "Logout",
-      link: "logout",
-      icon : <BiLogOut />,
-    },
+    
   ];
   const handleBurger = ()=>{
     show ? toggleShow(false):toggleShow(true);
@@ -63,7 +64,18 @@ const SideBar = () => {
                     )
                     
                   })
-                }    
+                }   
+
+                <button  className={`w-[100%] pl-5 mb-5 h-[3rem] `}>
+                  <div  className={`w-[90%] pl-2 md:pl-5 mb-5 h-[3rem] duration-150 flex items-center rounded-sm hover:bg-gray-200 hover:text-black hover:w-full`}> 
+                  
+                  <BiLogOut />
+                      
+                      <div className=' pl-3 text-[.9rem] md:text-[1rem]'>
+                          Logout
+                      </div>
+                  </div>
+                  </button> 
           
           </div>
 
