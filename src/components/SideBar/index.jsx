@@ -24,7 +24,7 @@ const SuperAdminSidebar = () => {
       link: "/superadmin/all-user-responses",
       icon: FcRules,
     },
-    { name: "Setting", link: "/superadmin/settings", icon: RiSettings4Line },
+    { name: "Setting", link: "/superadmin/setting", icon: RiSettings4Line },
     { name: "Logout", link: "/", icon: BsFillBagDashFill },
   ];
   const [open, setOpen] = useState(true);

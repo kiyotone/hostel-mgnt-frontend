@@ -15,6 +15,8 @@ import AllOrders from "./pages/AllOrders";
 import CreateFaq from "./components/forms/AddFaqs";
 import UpdateFaq from "./components/forms/UpdateFaqs";
 import AllUsersResponses from "./pages/UserResponses";
+import Setting from "./pages/Setting";
+import Test from "./pages/Test";
 
 function App() {
   return (
@@ -25,6 +27,7 @@ function App() {
           <Route path="/hostels" element={<Hostels />} />
           <Route path="/hostels/:id" element={<SingleHostelPage />} />
           <Route path="/about-us" element={<AboutUs />} />
+          <Route path="/test" element={<Test />} />
         </Route>
         {/* superadmin Route start */}
         <Route path="/" element={<SuperAdminSidebar />}>
@@ -36,6 +39,7 @@ function App() {
             path="/superadmin/all-user-responses"
             element={<AllUsersResponses />}
           />
+          <Route path="/superadmin/setting" element={<Setting />} />
         </Route>
 
         {/* superadmin forms start */}

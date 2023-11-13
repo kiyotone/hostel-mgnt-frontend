@@ -17,6 +17,7 @@ export const UserResponseTable = () => {
 
   const getAllContactFormsData = async () => {
     const response = await getData("contactForm", token);
+    console.log(response);
     if (response.success) {
       settableData(response.contactForms);
     }
