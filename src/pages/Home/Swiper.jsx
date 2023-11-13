@@ -3,56 +3,38 @@ import { Navigation, Pagination, Scrollbar, A11y } from "swiper/modules";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 
+
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 import Card from "../../components/Card";
+import { useEffect, useState } from "react";
+import { getDataWithoutHeader } from "../../services/axios.service";
 
 const HomeSwapper = () => {
-  const trendingData = [
-    {
-      name: "Kirtan",
-      loaction: "Whatevdfdfer",
-      price: "10000",
-      rating: 5
-    },
-    {
-      name: "Kirtan",
-      loaction: "Whatever",
-      price: "10000",
-    },
-    {
-      name: "Kirtan",
-      loaction: "Whatever",
-      price: "10000",
-    },
-    {
-      name: "Kirtan",
-      loaction: "Whatever",
-      price: "10000",
-    },
-    {
-      name: "Kirtan",
-      loaction: "Whatever",
-      price: "10000",
-    },
-    {
-      name: "Kirtan",
-      loaction: "Whatever",
-      price: "10000",
-    },
-    {
-      name: "Kirtan",
-      loaction: "Whatever",
-      price: "10000",
-    },
-    {
-      name: "Kirtan",
-      loaction: "Whatever",
-      price: "10000",
-    },
-  ];
+  const [trendingData,setTrending] = useState();
+
+  const NUMBER_OF_FEATURED = 6;
+
+  
+
+  const getTrending = async ()=> {
+  
+
+    const response = await getDataWithoutHeader(`hostels/featured`);
+    console.log(response)
+    setTrending(response.hostels)
+    
+    setTrending(trendingData => trendingData = trendingData.slice(0, NUMBER_OF_FEATURED))
+
+  }
+
+  useEffect(()=>{
+
+    getTrending()
+
+  },[])
 
   return (
     <Swiper
@@ -76,18 +58,21 @@ const HomeSwapper = () => {
       onSlideChange={() => console.log("slide change")}
     >
       {trendingData &&
-        trendingData.map((data, index) => {
+        trendingData.map((data) => {
           return (
             <SwiperSlide
-              key={index}
+              key={data._id}
               className="flex items-center justify-around"
             >
               <Card
-                name={data.name}
-                location={data.loaction}
-                price={data.price}
-                rating={data.rating}
-              />
+                  key={data._id}
+                  name={data.name}
+                  location={"wowowo"}
+                  price={40000}
+                  rating={data.averageRating}
+                  noOfReviews={data.noOfReviews}
+                  id={data._id}
+                />
             </SwiperSlide>
           );
         })}
