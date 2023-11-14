@@ -23,7 +23,6 @@ import {
 } from "../../services/toastify.service";
 import Button from "@mui/material/Button";
 import Modal from "@mui/material/Modal";
-import "./singlehostel.module.css";
 import Map from "./Map";
 
 const SingleHostelPage = () => {
@@ -180,18 +179,23 @@ const SingleHostelPage = () => {
           <div className="flex gap-4 flex-col md:flex-row relative">
             <div className="rounded-md my-5 shadow-lg p-4">
               <h1 className="text-2xl font-bold mb-4">{hostel?.name}</h1>
-              <p>
-                Address:{hostel?.location?.city}-
-                {hostel?.location?.localLocation}{" "}
-              </p>
-              <p>Phone no:{hostel?.phone} </p>
-              <div className="mt-5">
-                Description:
-                <p>{hostel?.description}</p>
+              <div className="my-2">
+                <h2 className="font-semibold text-xl">Address:</h2>
+                <p className="text-lg font-normal">
+                  {hostel?.location?.localLocation},{hostel?.location?.city}{" "}
+                </p>
               </div>
-              <div className="mt-5">
-                Policies and Rules:
-                <p>{hostel?.rules}</p>
+              <div className="mb-5">
+                <h2 className="font-semibold text-xl">Phone no: </h2>
+                <p className="text-lg font-normal">{hostel?.phone}</p>
+              </div>
+              <div className="mb-5">
+                <h2 className="font-semibold text-xl">Description:</h2>
+                <p className="text-lg font-normal">{hostel?.description}</p>
+              </div>
+              <div className="mb-5">
+                <h2 className="font-semibold text-xl">Policies and Rules:</h2>
+                <p className="font-normal text-lg">{hostel?.rules}</p>
                 {/* {hostel.rules &&
                   hostel.rules.map((rule) => {
                     return (
@@ -201,233 +205,26 @@ const SingleHostelPage = () => {
                     );
                   })} */}
               </div>
-              <div className="mt-5">
-                <div className="relative">
-                  <h1 className="text-center font-semibold text-2xl mb-2">
-                    Weekly Food Routine
-                  </h1>
-                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-20 m-4">
-                    {/* Sunday Food Items */}
-                    <div className="border-4 p-8">
-                      <h1 className="text-xl text-center font-semibold my-5 border-b-4">
-                        Sunday
-                      </h1>
-                      <div className="grid grid-cols-2 font-semibold">
-                        <div className="text-center">Time</div>
-                        <div className="text-center">Food Name</div>
-                      </div>
-                      {allFood &&
-                        allFood.map((food) => {
-                          if (food.category === "sunday") {
-                            return (
-                              <div key={food._id} className="relative">
-                                <hr className="m-2" />
-                                <div className="grid grid-cols-2">
-                                  <div className="text-center">
-                                    {food?.time}
-                                  </div>
-                                  <div className="text-center">
-                                    {food?.title}
-                                  </div>
-                                </div>
-                              </div>
-                            );
-                          }
-                        })}
-                    </div>
-                    {/* Monday food Items */}
-                    <div>
-                      <h1 className="text-xl text-center font-semibold my-5">
-                        Monday
-                      </h1>
-
-                      <div className="grid grid-cols-2 font-semibold">
-                        <div className="text-center">Time</div>
-                        <div className="text-center">Food Name</div>
-                      </div>
-                      {allFood &&
-                        allFood.map((food) => {
-                          if (food.category === "monday") {
-                            return (
-                              <div key={food._id} className="relative">
-                                <hr className="m-2" />
-                                <div className="grid grid-cols-2">
-                                  <div className="text-center">
-                                    {food?.time}
-                                  </div>
-                                  <div className="text-center">
-                                    {food?.title}
-                                  </div>
-                                </div>
-                              </div>
-                            );
-                          }
-                        })}
-                    </div>
-                    {/* Tuesday Food Items */}
-                    <div>
-                      <h1 className="text-xl text-center font-semibold my-5">
-                        Tuesday
-                      </h1>
-
-                      <div className="grid grid-cols-2 font-semibold">
-                        <div className="text-center">Time</div>
-                        <div className="text-center">Food Name</div>
-                      </div>
-                      {allFood &&
-                        allFood.map((food) => {
-                          if (food.category === "tuesday") {
-                            return (
-                              <div key={food._id} className="relative">
-                                <hr className="m-2" />
-                                <div className="grid grid-cols-2">
-                                  <div className="text-center">
-                                    {food?.time}
-                                  </div>
-                                  <div className="text-center">
-                                    {food?.title}
-                                  </div>
-                                </div>
-                              </div>
-                            );
-                          }
-                        })}
-                    </div>
-                    {/* Wednesday Food Items */}
-                    <div>
-                      <h1 className="text-xl text-center font-semibold my-5">
-                        Wednesday
-                      </h1>
-
-                      <div className="grid grid-cols-2 font-semibold">
-                        <div className="text-center">Time</div>
-                        <div className="text-center">Food Name</div>
-                      </div>
-                      {allFood &&
-                        allFood.map((food) => {
-                          if (food.category === "wednesday") {
-                            return (
-                              <div key={food._id} className="relative">
-                                <hr className="m-2" />
-                                <div className="grid grid-cols-2">
-                                  <div className="text-center">
-                                    {food?.time}
-                                  </div>
-                                  <div className="text-center">
-                                    {food?.title}
-                                  </div>
-                                </div>
-                              </div>
-                            );
-                          }
-                        })}
-                    </div>
-
-                    {/* Thursday Food Items */}
-                    <div>
-                      <h1 className="text-xl text-center font-semibold my-5">
-                        Thursday
-                      </h1>
-
-                      <div className="grid grid-cols-2 font-semibold">
-                        <div className="text-center">Time</div>
-                        <div className="text-center">Food Name</div>
-                      </div>
-                      {allFood &&
-                        allFood.map((food) => {
-                          if (food.category === "thursday") {
-                            return (
-                              <div key={food._id} className="relative">
-                                <hr className="m-2" />
-                                <div className="grid grid-cols-2">
-                                  <div className="text-center">
-                                    {food?.time}
-                                  </div>
-                                  <div className="text-center">
-                                    {food?.title}
-                                  </div>
-                                </div>
-                              </div>
-                            );
-                          }
-                        })}
-                    </div>
-                    {/* Friday Food Items */}
-                    <div>
-                      <h1 className="text-xl text-center font-semibold my-5">
-                        Friday
-                      </h1>
-
-                      <div className="grid grid-cols-2 font-semibold">
-                        <div className="text-center">Time</div>
-                        <div className="text-center">Food Name</div>
-                      </div>
-                      {allFood &&
-                        allFood.map((food) => {
-                          if (food.category === "friday") {
-                            return (
-                              <div key={food._id} className="relative">
-                                <hr className="m-2" />
-                                <div className="grid grid-cols-2">
-                                  <div className="text-center">
-                                    {food?.time}
-                                  </div>
-                                  <div className="text-center">
-                                    {food?.title}
-                                  </div>
-                                </div>
-                              </div>
-                            );
-                          }
-                        })}
-                    </div>
-                    {/* Saturday Food Items */}
-                    <div>
-                      <h1 className="text-xl text-center my-5 font-semibold">
-                        Saturday
-                      </h1>
-
-                      <div className="grid grid-cols-2 font-semibold">
-                        <div className="text-center">Time</div>
-                        <div className="text-center">Food Name</div>
-                      </div>
-                      {allFood &&
-                        allFood.map((food) => {
-                          if (food.category === "saturday") {
-                            return (
-                              <div key={food._id} className="relative">
-                                <hr className="m-2" />
-                                <div className="grid grid-cols-2">
-                                  <div className="text-center">
-                                    {food?.time}
-                                  </div>
-                                  <div className="text-center">
-                                    {food?.title}
-                                  </div>
-                                </div>
-                              </div>
-                            );
-                          }
-                        })}
-                    </div>
-                  </div>
-                </div>
+              <div className="my-5 shadow-lg p-4 rounded-md">
+                <h1 className="text-3xl mb-2 text-center">Google Maps</h1>
+                <Map lat={hostel.latitude} lon={hostel.longitude} />
               </div>
+
               <div className="mt-5">
                 <h1 className="font-semibold text-2xl">
-                  Reviews and Ratings:({hostel.noOfReviews})
+                  Reviews and Ratings: ({hostel.noOfReviews})
                 </h1>
-                <div className="border mt-2 flex flex-col lg:flex-row items-center justify-between">
-                  <div className=" flex w-full justify-center flex-col">
+                <div className="mt-2 border-2 pb-4 rounded-md flex flex-col xl:flex-row justify-between">
+                  <div className="flex w-full max-w-[768px] p-5 justify-center flex-col">
                     <div className="px-5">
                       {allReviews &&
                         allReviews.map((review) => {
                           return (
                             <div
                               key={review._id}
-                              className="shadow-sm py-5 flex flex-col sm:flex-row justify-between pr-10 items-center gap-2"
+                              className="border-2 my-5 py-5 rounded-md shadow-md flex flex-col sm:flex-row justify-between pr-10 items-center gap-4"
                             >
-                              <div>
+                              <div className="mx-5">
                                 <h1 className="font-medium">
                                   {review.user.name}
                                 </h1>
@@ -525,17 +322,11 @@ const SingleHostelPage = () => {
                   </div>
 
                   {isLogedInStatus && (
-                    <div className="rating-review mx-2 p-4 shadow-lg">
-                      <label
-                        htmlFor="comment"
-                        className="my-3 text-xl font-sans block"
-                      >
-                        {" "}
-                        Comment:
-                      </label>
+                    <div className="flex flex-col xl:w-[300px] w-[360px] h-[250px] mx-auto border-2 p-4 rounded-md xl:sticky xl:my-10 top-[50vh]">
+                      <p className="block text-lg">Comment:</p>
                       <input
                         type="text"
-                        className="outline-none border-none w-[250px] sm:w-[300px] p-2 rounded-md bg-gray-300 my-3"
+                        className="outline-none border-none w-full p-2 rounded-md bg-gray-300 my-3"
                         value={reviewData.comment}
                         onChange={(e) =>
                           setreviewData({
@@ -550,13 +341,18 @@ const SingleHostelPage = () => {
                         }}
                       >
                         <Typography component="legend">Rating</Typography>
-                        <Rating
-                          name="simple-controlled"
-                          value={reviewData.rating}
-                          onChange={(event, newValue) => {
-                            setreviewData({ ...reviewData, rating: newValue });
-                          }}
-                        />
+                        <div className="block">
+                          <Rating
+                            name="simple-controlled"
+                            value={reviewData.rating}
+                            onChange={(event, newValue) => {
+                              setreviewData({
+                                ...reviewData,
+                                rating: newValue,
+                              });
+                            }}
+                          />
+                        </div>
                       </Box>
                       <button
                         className="p-2 bg-blue-700  text-white px-3 rounded-md ms-[80%]"
@@ -570,12 +366,229 @@ const SingleHostelPage = () => {
                   )}
                 </div>
               </div>
+              <div className="mt-5">
+                <div className="relative">
+                  <h1 className="text-center font-semibold text-2xl mb-2">
+                    Weekly Food Routine
+                  </h1>
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-20 m-4">
+                    {/* Sunday Food Items */}
+                    <div>
+                      <h1 className="text-xl text-center font-semibold my-5">
+                        Sunday
+                      </h1>
+                      <div className="border-2 rounded-md py-3">
+                        <div className="grid grid-cols-2 font-semibold">
+                          <div className="text-center">Time</div>
+                          <div className="text-center">Food Name</div>
+                        </div>
+                        {allFood &&
+                          allFood.map((food) => {
+                            if (food.category === "sunday") {
+                              return (
+                                <div key={food._id} className="relative">
+                                  <hr className="my-2" />
+                                  <div className="grid grid-cols-2 px-2">
+                                    <div className="text-center">
+                                      {food?.time}
+                                    </div>
+                                    <div className="text-center">
+                                      {food?.title}
+                                    </div>
+                                  </div>
+                                </div>
+                              );
+                            }
+                          })}
+                      </div>
+                    </div>
+                    {/* Monday food Items */}
+                    <div>
+                      <h1 className="text-xl text-center font-semibold my-5">
+                        Monday
+                      </h1>
+                      <div className="border-2 rounded-md py-3">
+                        <div className="grid grid-cols-2 font-semibold">
+                          <div className="text-center">Time</div>
+                          <div className="text-center">Food Name</div>
+                        </div>
+                        {allFood &&
+                          allFood.map((food) => {
+                            if (food.category === "monday") {
+                              return (
+                                <div key={food._id} className="relative">
+                                  <hr className="my-2" />
+                                  <div className="grid grid-cols-2 px-2">
+                                    <div className="text-center">
+                                      {food?.time}
+                                    </div>
+                                    <div className="text-center">
+                                      {food?.title}
+                                    </div>
+                                  </div>
+                                </div>
+                              );
+                            }
+                          })}
+                      </div>
+                    </div>
+                    {/* Tuesday Food Items */}
+                    <div>
+                      <h1 className="text-xl text-center font-semibold my-5">
+                        Tuesday
+                      </h1>
+                      <div className="border-2 rounded-md py-3">
+                        <div className="grid grid-cols-2 font-semibold">
+                          <div className="text-center">Time</div>
+                          <div className="text-center">Food Name</div>
+                        </div>
+                        {allFood &&
+                          allFood.map((food) => {
+                            if (food.category === "tuesday") {
+                              return (
+                                <div key={food._id} className="relative">
+                                  <hr className="my-2" />
+                                  <div className="grid grid-cols-2 px-2">
+                                    <div className="text-center">
+                                      {food?.time}
+                                    </div>
+                                    <div className="text-center">
+                                      {food?.title}
+                                    </div>
+                                  </div>
+                                </div>
+                              );
+                            }
+                          })}
+                      </div>
+                    </div>
+                    {/* Wednesday Food Items */}
+                    <div>
+                      <h1 className="text-xl text-center font-semibold my-5">
+                        Wednesday
+                      </h1>
+                      <div className="border-2 rounded-md py-3">
+                        <div className="grid grid-cols-2 font-semibold">
+                          <div className="text-center">Time</div>
+                          <div className="text-center">Food Name</div>
+                        </div>
+                        {allFood &&
+                          allFood.map((food) => {
+                            if (food.category === "wednesday") {
+                              return (
+                                <div key={food._id} className="relative">
+                                  <hr className="my-2" />
+                                  <div className="grid grid-cols-2 px-2">
+                                    <div className="text-center">
+                                      {food?.time}
+                                    </div>
+                                    <div className="text-center">
+                                      {food?.title}
+                                    </div>
+                                  </div>
+                                </div>
+                              );
+                            }
+                          })}
+                      </div>
+                    </div>
+
+                    {/* Thursday Food Items */}
+                    <div>
+                      <h1 className="text-xl text-center font-semibold my-5">
+                        Thursday
+                      </h1>
+                      <div className="border-2 rounded-md py-3">
+                        <div className="grid grid-cols-2 font-semibold">
+                          <div className="text-center">Time</div>
+                          <div className="text-center">Food Name</div>
+                        </div>
+                        {allFood &&
+                          allFood.map((food) => {
+                            if (food.category === "thursday") {
+                              return (
+                                <div key={food._id} className="relative">
+                                  <hr className="my-2" />
+                                  <div className="grid grid-cols-2 px-2">
+                                    <div className="text-center">
+                                      {food?.time}
+                                    </div>
+                                    <div className="text-center">
+                                      {food?.title}
+                                    </div>
+                                  </div>
+                                </div>
+                              );
+                            }
+                          })}
+                      </div>
+                    </div>
+                    {/* Friday Food Items */}
+                    <div>
+                      <h1 className="text-xl text-center font-semibold my-5">
+                        Friday
+                      </h1>
+                      <div className="border-2 rounded-md py-3">
+                        <div className="grid grid-cols-2 font-semibold">
+                          <div className="text-center">Time</div>
+                          <div className="text-center">Food Name</div>
+                        </div>
+                        {allFood &&
+                          allFood.map((food) => {
+                            if (food.category === "friday") {
+                              return (
+                                <div key={food._id} className="relative">
+                                  <hr className="my-2" />
+                                  <div className="grid grid-cols-2 px-2">
+                                    <div className="text-center">
+                                      {food?.time}
+                                    </div>
+                                    <div className="text-center">
+                                      {food?.title}
+                                    </div>
+                                  </div>
+                                </div>
+                              );
+                            }
+                          })}
+                      </div>
+                    </div>
+                    {/* Saturday Food Items */}
+                    <div>
+                      <h1 className="text-xl text-center font-semibold my-5">
+                        Saturday
+                      </h1>
+                      <div className="border-2 rounded-md py-3">
+                        <div className="grid grid-cols-2 font-semibold">
+                          <div className="text-center">Time</div>
+                          <div className="text-center">Food Name</div>
+                        </div>
+                        {allFood &&
+                          allFood.map((food) => {
+                            if (food.category === "saturday") {
+                              return (
+                                <div key={food._id} className="relative">
+                                  <hr className="my-2" />
+                                  <div className="grid grid-cols-2 px-2">
+                                    <div className="text-center">
+                                      {food?.time}
+                                    </div>
+                                    <div className="text-center">
+                                      {food?.title}
+                                    </div>
+                                  </div>
+                                </div>
+                              );
+                            }
+                          })}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-          <div className="my-5 shadow-lg p-4 rounded-md">
-            <h1 className="text-3xl text-center">Google Maps</h1>
-            <Map lat={hostel.latitude} lon={hostel.longitude} />
-          </div>
+
           <div>
             <SimilarHostels />
           </div>

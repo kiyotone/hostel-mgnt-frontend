@@ -20,10 +20,10 @@ const ContactUs = () => {
   };
   return (
     <>
-      <div className="my-8 relative w-full flex items-center justify-center">
+      <div className="my-8 max-w-[1080px] relative w-full flex mx-auto">
         <iframe
           title="Google Map"
-          className="w-[90vw] max-w-[768px] h-[250px] sm:h-[300px] md:h-[350px] rounded-lg shadow-lg"
+          className="w-[90vw] h-[360px] md:h-[480px] max-w-[1080px] rounded-lg shadow-lg"
           style={{ border: 0 }}
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14133.107615515763!2d85.3063157486948!3d27.677835319187974!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb19cbbeac9357%3A0x8f35a679609cb5b9!2sPulchowk%2C%20Lalitpur%2044600!5e0!3m2!1sen!2snp!4v1699358220052!5m2!1sen!2snp"
           allowFullScreen

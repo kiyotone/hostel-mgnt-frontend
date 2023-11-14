@@ -50,6 +50,14 @@ function Navbar() {
               About Us
             </NavLink>
           </li>
+          <li onClick={removeActive}>
+            <NavLink
+              to="/contact"
+              className={({ isActive }) => (isActive ? styles.active : "")}
+            >
+              ContactUs
+            </NavLink>
+          </li>
           <div className="bts">
             <NavLink to="/signup">
               <button className={styles.signUpBtn}>Sign Up</button>

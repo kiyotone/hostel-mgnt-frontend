@@ -25,6 +25,7 @@ label {
   padding: 0 4px;
 }
 
+
 /* Move the label up when input is focused */
 input:focus + label,
 input:not(:placeholder-shown) + label {
