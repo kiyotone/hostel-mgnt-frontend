@@ -1,10 +1,10 @@
 import Swiper from "./Swiper";
-import Hero from "../../components/Hero/index";
 import Footer from "../../components/Footer";
 import Accordion from "./FaqSection/Accordion";
 import { getDataWithoutHeader } from "../../services/axios.service";
 import { useEffect, useState } from "react";
 import WhyUs from "./Why Us";
+import LandingPage from "../../components/LandingPage";
 
 const Home = () => {
   const [accordions, setAccordions] = useState([]);
@@ -35,8 +35,8 @@ const Home = () => {
   };
   return (
     <div className="bg-white text-black">
-      <Hero />
-      <div className="pt-[7rem] text-[2rem] font-semibold">
+      <LandingPage />
+      <div className="text-[2rem] mt-[3rem] font-semibold">
         <h1 className="text-3xl ms-[1rem]">Featured Hostels</h1>
       </div>
 

@@ -24,6 +24,7 @@ const Footer = () => {
                   href="https://www.facebook.com"
                   rel="noreferrer"
                   target="_blank"
+                  className="hover:text-gray-300"
                 >
                   <FaFacebook size={24} />
                 </a>
@@ -33,6 +34,7 @@ const Footer = () => {
                   href="https://www.twitter.com"
                   rel="noreferrer"
                   target="_blank"
+                  className="hover:text-gray-300"
                 >
                   <FaTwitter size={24} />
                 </a>
@@ -42,6 +44,7 @@ const Footer = () => {
                   href="https://www.instagram.com"
                   rel="noreferrer"
                   target="_blank"
+                  className="hover:text-gray-300"
                 >
                   <FaInstagram size={24} />
                 </a>
