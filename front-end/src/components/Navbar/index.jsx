@@ -47,7 +47,7 @@ function Navbar() {
               to="/about-us"
               className={({ isActive }) => (isActive ? styles.active : "")}
             >
-              About Us
+              About
             </NavLink>
           </li>
           <li onClick={removeActive}>
@@ -55,7 +55,7 @@ function Navbar() {
               to="/contact"
               className={({ isActive }) => (isActive ? styles.active : "")}
             >
-              ContactUs
+              Contact
             </NavLink>
           </li>
           <div className="bts">

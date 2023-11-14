@@ -1,6 +1,6 @@
 // import Swiper core and required modules
 import { Navigation, Pagination, Scrollbar, A11y } from "swiper/modules";
-
+import { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 // Import Swiper styles
@@ -8,51 +8,22 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 import Card from "../../components/Card";
+import { getDataWithoutHeader } from "../../services/axios.service";
 
 const HomeSwapper = () => {
-  const trendingData = [
-    {
-      name: "Kirtan",
-      loaction: "Whatevdfdfer",
-      price: "10000",
-      rating: 5
-    },
-    {
-      name: "Kirtan",
-      loaction: "Whatever",
-      price: "10000",
-    },
-    {
-      name: "Kirtan",
-      loaction: "Whatever",
-      price: "10000",
-    },
-    {
-      name: "Kirtan",
-      loaction: "Whatever",
-      price: "10000",
-    },
-    {
-      name: "Kirtan",
-      loaction: "Whatever",
-      price: "10000",
-    },
-    {
-      name: "Kirtan",
-      loaction: "Whatever",
-      price: "10000",
-    },
-    {
-      name: "Kirtan",
-      loaction: "Whatever",
-      price: "10000",
-    },
-    {
-      name: "Kirtan",
-      loaction: "Whatever",
-      price: "10000",
-    },
-  ];
+  const [trendingData, settrendingData] = useState([]);
+
+  const getAllHostels = async () => {
+    const response = await getDataWithoutHeader("hostels");
+    console.log(response, "save");
+    if (response.success) {
+      settrendingData(response.hostels);
+    }
+  };
+
+  useEffect(() => {
+    getAllHostels();
+  }, []);
 
   return (
     <Swiper
@@ -76,17 +47,18 @@ const HomeSwapper = () => {
       onSlideChange={() => console.log("slide change")}
     >
       {trendingData &&
-        trendingData.map((data, index) => {
+        trendingData?.map((data, index) => {
           return (
             <SwiperSlide
               key={index}
               className="flex items-center justify-around"
             >
               <Card
-                name={data.name}
-                location={data.loaction}
-                price={data.price}
-                rating={data.rating}
+                name={data?.name}
+                location={data?.location?.city}
+                rating={data?.averageRating}
+                noOfReviews={data?.noOfReviews}
+                id={data._id}
               />
             </SwiperSlide>
           );

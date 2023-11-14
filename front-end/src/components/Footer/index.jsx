@@ -2,7 +2,7 @@ import { FaFacebook, FaInstagram, FaTwitter } from "react-icons/fa";
 
 const Footer = () => {
   return (
-    <footer className="bg-red-500 py-8 text-white w-full">
+    <footer className="bg-black py-8 text-white w-full rounded-t-[30px]">
       <div className="container mx-auto max-w-[1280px]">
         <div className="flex items-center justify-evenly gap-3 flex-col sm:flex-row">
           <div className="flex items-center justify-center flex-col w-full sm:border-r border-white h-full sm:py-1">
@@ -20,17 +20,29 @@ const Footer = () => {
             <h2 className="text-xl font-semibold mb-4">Connect With Us</h2>
             <ul className="text-base flex items-center md:justify-evenly justify-center gap-3">
               <li>
-                <a href="https://www.facebook.com" rel="noreferrer" target="_blank">
+                <a
+                  href="https://www.facebook.com"
+                  rel="noreferrer"
+                  target="_blank"
+                >
                   <FaFacebook size={24} />
                 </a>
               </li>
               <li>
-                <a href="https://www.twitter.com" rel="noreferrer" target="_blank">
+                <a
+                  href="https://www.twitter.com"
+                  rel="noreferrer"
+                  target="_blank"
+                >
                   <FaTwitter size={24} />
                 </a>
               </li>
               <li>
-                <a href="https://www.instagram.com" rel="noreferrer" target="_blank">
+                <a
+                  href="https://www.instagram.com"
+                  rel="noreferrer"
+                  target="_blank"
+                >
                   <FaInstagram size={24} />
                 </a>
               </li>

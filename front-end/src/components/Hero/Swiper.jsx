@@ -1,10 +1,5 @@
 // import Swiper core and required modules
-import {
-  Pagination,
-  Scrollbar,
-  A11y,
-  Autoplay,
-} from "swiper/modules";
+import { Pagination, Scrollbar, A11y, Autoplay } from "swiper/modules";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -14,7 +9,7 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 
-const Swapper= () => {
+const Swapper = () => {
   const images = [
     {
       id: 1,
@@ -32,7 +27,7 @@ const Swapper= () => {
 
   return (
     <Swiper
-      className="flex w-[95%] shadow-2xl rounded-ful bg-gray-300 h-[35rem] flex-col items-center"
+      className="flex w-[95%] shadow-2xl rounded-lg bg-gray-300 h-[35rem] flex-col items-center"
       // install Swiper modules
       modules={[Pagination, Scrollbar, A11y, Autoplay]}
       spaceBetween={50}
@@ -41,7 +36,7 @@ const Swapper= () => {
       pagination={{ clickable: true }}
     >
       {images &&
-        images.map((e,index) => {
+        images.map((e, index) => {
           return (
             <SwiperSlide key={index} className="">
               <div className="bg-green-300 flex w-[100%] shadow-2xl h-[35rem] rounded-md items-center">
@@ -54,5 +49,4 @@ const Swapper= () => {
   );
 };
 
-
-export default Swapper
+export default Swapper;

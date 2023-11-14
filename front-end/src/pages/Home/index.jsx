@@ -36,10 +36,8 @@ const Home = () => {
   };
   return (
     <div className="bg-white text-black">
-      <BottomNav />
-      <Hero />
       <div className="pt-[7rem] text-[2rem] font-semibold">
-        <h1 className="text-center text-3xl">Trending Now</h1>
+        <h1 className="text-3xl ms-[1rem]">Featured Hostels</h1>
       </div>
 
       <Swiper />

@@ -225,11 +225,10 @@ const SingleHostelPage = () => {
                               className="border-2 my-5 py-5 rounded-md shadow-md flex flex-col sm:flex-row justify-between pr-10 items-center gap-4"
                             >
                               <div className="mx-5">
-                                <h1 className="font-medium">
+                                <h1 className="font-semibold">
                                   {review.user.name}
                                 </h1>
                                 <h1>{review.comment}</h1>
-                                <h1>{review._id}</h1>
                                 <Rating
                                   name="read-only"
                                   value={review.rating}
@@ -323,9 +322,9 @@ const SingleHostelPage = () => {
 
                   {isLogedInStatus && (
                     <div className="flex flex-col xl:w-[300px] w-[360px] h-[250px] mx-auto border-2 p-4 rounded-md xl:sticky xl:my-10 top-[50vh]">
-                      <p className="block text-lg">Comment:</p>
                       <input
                         type="text"
+                        placeholder="Comment"
                         className="outline-none border-none w-full p-2 rounded-md bg-gray-300 my-3"
                         value={reviewData.comment}
                         onChange={(e) =>

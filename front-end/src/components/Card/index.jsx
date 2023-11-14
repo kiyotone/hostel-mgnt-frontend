@@ -1,7 +1,8 @@
+import { Button } from "@mui/material";
 import { string, number } from "prop-types";
 import { useNavigate } from "react-router-dom";
 
-const Card = ({ name, location, price, rating = 3, noOfReviews = 0, id }) => {
+const Card = ({ name, location, rating = 3, noOfReviews = 0, id }) => {
   const navigate = useNavigate();
 
   function get_rating_color(rating) {
@@ -29,7 +30,7 @@ const Card = ({ name, location, price, rating = 3, noOfReviews = 0, id }) => {
               rating
             )} mr-2 p-1 rounded-md text-white`}
           >
-            <span>{rating}</span>
+            <span>{rating.toFixed(2)}</span>
             <span className="ml-2">&#9733;</span>
           </span>
           ({noOfReviews} reviews)
@@ -38,14 +39,8 @@ const Card = ({ name, location, price, rating = 3, noOfReviews = 0, id }) => {
           <span className="mr-2">Location:</span>
           {location}
         </p>
-        <p className="text-red-500 text-2xl font-bold mb-2">
-          <span>NPR </span>
-          {price}
-        </p>
         <div className="flex justify-between mb-5">
-          <button className="bg-[#d72e5e] text-white px-4 py-2 rounded-md hover:bg-[#ec3065]">
-            Book Now
-          </button>
+          <Button variant="contained">Book Now</Button>
           <button
             className="bg-gray-300 text-gray-700 px-4 py-2 rounded-md hover:bg-gray-400"
             onClick={() => navigate(`/hostels/${id}`)}
@@ -64,7 +59,6 @@ Card.propTypes = {
   name: string,
   location: string,
   id: string,
-  price: number,
   rating: number,
   noOfReviews: number,
 };
