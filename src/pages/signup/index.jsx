@@ -3,6 +3,7 @@ import {object, string} from 'yup'
 import { addData } from '../../services/axios.service'
 import { errorToast, successToast } from '../../services/toastify.service'
 import { Link, useNavigate } from 'react-router-dom'
+import { useState } from 'react'
 const SignUp = () => {
     const navigate=useNavigate()
 
@@ -26,7 +27,7 @@ const SignUp = () => {
         console.log(response)
         if(response.success){
             successToast(response.message?response.message:"User registered successfully")
-            navigate('/signin')
+              navigate('/signin')
         }else{
             errorToast(response.message?response.message:"Unable to register the user")
         }
@@ -118,7 +119,9 @@ const SignUp = () => {
             }
         }
         </Formik>
-
+        <Link to={'/signup-owner'} className='text-xl mt-2'>
+          Register As A Owner
+        </Link>
 
         <div>
           <Link to='/signin' className='text-xl mt-2'>Already have an account? Signin</Link>

@@ -8,6 +8,7 @@ import Hostels from "./pages/Hostels";
 import AboutUs from "./pages/AboutUs";
 import SingleHostelPage from "./pages/SingleHostelPage";
 import AdminDashboard from "./pages/AdminDashboard";
+import SignUpOwner from "./pages/Register";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
       
         <Route path="/signup" element={<SignUp />} />
         <Route path="/signin" element={<SignIn />} />
+        <Route path="/signup-owner" element={<SignUpOwner />} />
       </Routes>
     </>
   );

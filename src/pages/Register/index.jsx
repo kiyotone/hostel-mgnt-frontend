@@ -1,8 +1,12 @@
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import { object, string } from "yup";
 import "./register.module.css";
+import { Link, useNavigate } from "react-router-dom";
+import { addData } from "../../services/axios.service";
+import { errorToast, successToast } from "../../services/toastify.service";
 
-const SignUp = () => {
+const SignUpOwner = () => {
+  const navigate=useNavigate()
   const initialValue = {
     name: "",
     hostelName: "",
@@ -24,7 +28,15 @@ const SignUp = () => {
   });
 
   const handleRegisterForm = async (values) => {
-    console.log(values);
+        console.log(values)
+        const response=await addData('hostels/',values) 
+        console.log(response)
+        if(response.success){
+            successToast(response.message?response.message:"User registered successfully")
+            navigate('/')
+        }else{
+            errorToast(response.message?response.message:"Unable to register the user")
+        }
   };
 
   return (
@@ -112,6 +124,9 @@ const SignUp = () => {
                 className="text-red-500 absolute text-xs bottom-[-5px]"
               />
             </div>
+             <Link to={'/signup'} className='text-xl mt-2'>
+              Register As A User
+            </Link>
 
             <button
               type="submit"
@@ -126,4 +141,4 @@ const SignUp = () => {
   );
 };
 
-export default SignUp;
+export default SignUpOwner;

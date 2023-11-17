@@ -6,6 +6,7 @@ import { getDataWithoutHeader } from "../../services/axios.service";
 import { useEffect, useState } from "react";
 import BottomNav from "../../components/Navbar/BottomNav";
 import WhyUs from "./Why Us";
+import Map from "../../components/Map/index";
 
 const Home = () => {
   const [accordions, setAccordions] = useState([]);
@@ -65,6 +66,7 @@ const Home = () => {
 
       <div>
         <WhyUs />
+        <Map />
         <Footer />
       </div>
     </div>
