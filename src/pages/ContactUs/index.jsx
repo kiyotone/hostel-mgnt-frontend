@@ -1,6 +1,6 @@
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import { object, string } from "yup";
-import "./contact.module.css";
+import "../../../src/form.css";
 
 const ContactUs = () => {
   const initialValue = {

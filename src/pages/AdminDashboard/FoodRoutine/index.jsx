@@ -2,7 +2,7 @@ import { FaTrash, FaEdit, FaArrowLeft } from "react-icons/fa";
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import { object, string } from "yup";
 import { useEffect, useState } from "react";
-import "./food.module.css";
+import "../../../../src/form.css";
 import {
   addData,
   deleteData,

@@ -2,7 +2,7 @@ import { FaArrowLeft } from "react-icons/fa";
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import { object, string } from "yup";
 import { useState } from "react";
-import "./location.module.css";
+import "../../../../src/form.css";
 import { useSelector } from "react-redux";
 import { getData, updateDataWithHeader } from "../../../services/axios.service";
 import { successToast } from "../../../services/toastify.service";
