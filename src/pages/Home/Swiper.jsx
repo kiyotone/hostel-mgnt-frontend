@@ -33,10 +33,10 @@ const HomeSwapper = () => {
       spaceBetween={1}
       breakpoints={{
         1480: {
-          slidesPerView: 4,
+          slidesPerView: 3,
         },
         1100: {
-          slidesPerView: 3,
+          slidesPerView: 2,
         },
         750: {
           slidesPerView: 2,

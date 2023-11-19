@@ -2,12 +2,12 @@
 .hostels {
   margin: 2.5rem;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   gap: 2.5rem;
 }
 @media (max-width: 1410px) {
   .hostels {
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
   }
 }
 @media (max-width: 1050px) {

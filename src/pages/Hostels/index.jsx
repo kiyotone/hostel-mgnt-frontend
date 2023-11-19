@@ -20,7 +20,7 @@ const Hostels = () => {
 
   return (
     <>
-      <div className="flex justify-center items-center">
+      <div className="max-w-[1280px] mx-auto">
         <div className="hostels">
           {hostels.map((hostel) => {
             return (

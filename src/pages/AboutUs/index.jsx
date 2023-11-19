@@ -3,7 +3,7 @@ import styles from "./aboutUsSection.module.css";
 
 function AboutUsSection() {
   return (
-    <main className="w-full">
+    <main className="max-w-[1280px] mx-auto">
       <div className="container bg-black m-auto w-[80%] md:w-[90%] sm:w-[98%] rounded-xl">
         <img
           className="rounded-xl opacity-50 w-[100%] md:h-[356px] m-auto object-cover"
