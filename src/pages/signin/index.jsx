@@ -83,7 +83,7 @@ const SignIn = () => {
                   name="password"
                   className="w-full"
                 ></Field>
-                <label htmlFor="password">Email</label>
+                <label htmlFor="password">Password</label>
                 <ErrorMessage
                   component="div"
                   name="password"

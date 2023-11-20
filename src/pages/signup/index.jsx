@@ -41,7 +41,7 @@ const SignUp = () => {
 
   return (
     <>
-      <div className="max-w-md mx-auto mb-2 bg-white shadow-lg  flex flex-col items-center justify-center mt-[5%] py-4">
+      <div className="max-w-md mx-auto mb-2 bg-white shadow-lg  flex flex-col items-center justify-center py-2">
         <h1 className="text-center text-4xl font-bold mb-10">Register User</h1>
 
         <Formik

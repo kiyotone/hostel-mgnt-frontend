@@ -9,10 +9,14 @@ const Footer = () => {
             <h2 className="text-xl font-semibold mb-2">Legal</h2>
             <ul className="text-base flex items-center justify-center flex-col">
               <li>
-                <a href="/terms">Terms of Service</a>
+                <a href="/terms" className="hover:text-gray-300">
+                  Terms of Service
+                </a>
               </li>
               <li>
-                <a href="/privacy">Privacy Policy</a>
+                <a href="/privacy" className="hover:text-gray-300">
+                  Privacy Policy
+                </a>
               </li>
             </ul>
           </div>

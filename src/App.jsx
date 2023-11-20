@@ -23,9 +23,9 @@ function App() {
           <Route path="/users" element={<AdminDashboard />} />
           <Route path="/location" element={<HostelLocation />} />
           <Route path="/contact" element={<ContactUs />} />
+          <Route path="/signup" element={<SignUp />} />
+          <Route path="/signin" element={<SignIn />} />
         </Route>
-        <Route path="/signup" element={<SignUp />} />
-        <Route path="/signin" element={<SignIn />} />
       </Routes>
     </>
   );

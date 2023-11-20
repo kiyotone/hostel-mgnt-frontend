@@ -173,7 +173,7 @@ const SingleHostelPage = () => {
   return (
     <>
       {hostel && (
-        <main className="container mx-auto p-1 sm:p-4">
+        <main className="container max-w-[1280px] mx-auto sm:p-4">
           <ImageSlider images={hostel.images} />
 
           <div className="flex gap-4 flex-col md:flex-row relative">
@@ -370,9 +370,9 @@ const SingleHostelPage = () => {
                   <h1 className="text-center font-semibold text-2xl mb-2">
                     Weekly Food Routine
                   </h1>
-                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-20 m-4">
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10 m-4">
                     {/* Sunday Food Items */}
-                    <div>
+                    <div className="w-[280px]">
                       <h1 className="text-xl text-center font-semibold my-5">
                         Sunday
                       </h1>
@@ -402,7 +402,7 @@ const SingleHostelPage = () => {
                       </div>
                     </div>
                     {/* Monday food Items */}
-                    <div>
+                    <div className="w-[280px]">
                       <h1 className="text-xl text-center font-semibold my-5">
                         Monday
                       </h1>
@@ -432,7 +432,7 @@ const SingleHostelPage = () => {
                       </div>
                     </div>
                     {/* Tuesday Food Items */}
-                    <div>
+                    <div className="w-[280px]">
                       <h1 className="text-xl text-center font-semibold my-5">
                         Tuesday
                       </h1>
@@ -462,7 +462,7 @@ const SingleHostelPage = () => {
                       </div>
                     </div>
                     {/* Wednesday Food Items */}
-                    <div>
+                    <div className="w-[280px]">
                       <h1 className="text-xl text-center font-semibold my-5">
                         Wednesday
                       </h1>
@@ -493,7 +493,7 @@ const SingleHostelPage = () => {
                     </div>
 
                     {/* Thursday Food Items */}
-                    <div>
+                    <div className="w-[280px]">
                       <h1 className="text-xl text-center font-semibold my-5">
                         Thursday
                       </h1>
@@ -523,7 +523,7 @@ const SingleHostelPage = () => {
                       </div>
                     </div>
                     {/* Friday Food Items */}
-                    <div>
+                    <div className="w-[280px]">
                       <h1 className="text-xl text-center font-semibold my-5">
                         Friday
                       </h1>
@@ -553,7 +553,7 @@ const SingleHostelPage = () => {
                       </div>
                     </div>
                     {/* Saturday Food Items */}
-                    <div>
+                    <div className="w-[280px]">
                       <h1 className="text-xl text-center font-semibold my-5">
                         Saturday
                       </h1>
