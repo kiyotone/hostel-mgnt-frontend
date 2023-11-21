@@ -6,8 +6,7 @@ import { errorToast, successToast } from "../../services/toastify.service";
 import { useDispatch } from "react-redux";
 import { logedin } from "./auth.slice";
 import SignInWithGoogle from "../../components/SignInWithGoogle";
-import "../../../src/form.css";
-
+import styles from "./signin.module.css";
 const SignIn = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -66,9 +65,11 @@ const SignIn = () => {
                   type="email"
                   id="email"
                   name="email"
-                  className="w-full"
+                  className={`w-full ${styles.input}`}
                 ></Field>
-                <label htmlFor="email">Email</label>
+                <label className={`${styles.label}`} htmlFor="email">
+                  Email
+                </label>
                 <ErrorMessage
                   component="div"
                   name="email"
@@ -81,9 +82,11 @@ const SignIn = () => {
                   type="password"
                   id="password"
                   name="password"
-                  className="w-full"
+                  className={`w-full ${styles.input}`}
                 ></Field>
-                <label htmlFor="password">Password</label>
+                <label className={`${styles.label}`} htmlFor="password">
+                  Password
+                </label>
                 <ErrorMessage
                   component="div"
                   name="password"

@@ -2,7 +2,7 @@ import { FaArrowLeft } from "react-icons/fa";
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import { object, string } from "yup";
 import { useState } from "react";
-import "../../../../src/form.css";
+import styles from "./location.module.css";
 import { useSelector } from "react-redux";
 import { getData, updateDataWithHeader } from "../../../services/axios.service";
 import { successToast } from "../../../services/toastify.service";
@@ -141,7 +141,7 @@ const HostelLocation = () => {
                     <Form className="w-[80%]">
                       <div className="mb-2 relative w-full">
                         <label className="block" htmlFor="description">
-                          Description:
+                          Description
                         </label>
                         <Field
                           as="textarea"
@@ -160,14 +160,17 @@ const HostelLocation = () => {
                         />
                       </div>
                       <div className="mb-2 relative w-full">
-                        <label className="block  mb-2" htmlFor="longitude">
-                          Longitude:
+                        <label
+                          className={`${styles.label}`}
+                          htmlFor="longitude"
+                        >
+                          Longitude
                         </label>
                         <Field
                           type="text"
                           name="longitude"
                           value={values?.longitude}
-                          className="w-full"
+                          className={`${styles.input} w-full`}
                         ></Field>
                         <ErrorMessage
                           component="div"
@@ -176,14 +179,14 @@ const HostelLocation = () => {
                         />
                       </div>
                       <div className="mb-2 relative">
-                        <label className="block  mb-2" htmlFor="latitude">
-                          Latitude:
+                        <label className={`${styles.label}`} htmlFor="latitude">
+                          Latitude
                         </label>
                         <Field
                           type="text"
                           name="latitude"
                           value={values?.latitude}
-                          className="w-full"
+                          className={`${styles.input} w-full`}
                         ></Field>
                         <ErrorMessage
                           component="div"
@@ -192,14 +195,14 @@ const HostelLocation = () => {
                         />
                       </div>
                       <div className="mb-2 relative">
-                        <label className="block mb-2" htmlFor="city">
-                          Lity:
+                        <label className={`${styles.label}`} htmlFor="city">
+                          City
                         </label>
                         <Field
                           type="text"
                           name="city"
                           value={values?.city}
-                          className="w-full"
+                          className={`${styles.input} w-full`}
                         ></Field>
                         <ErrorMessage
                           component="div"
@@ -208,14 +211,17 @@ const HostelLocation = () => {
                         />
                       </div>
                       <div className="mb-2 relative">
-                        <label className="block mb-2" htmlFor="localLocation">
-                          Local Location:
+                        <label
+                          className={`${styles.label}`}
+                          htmlFor="localLocation"
+                        >
+                          Local Location
                         </label>
                         <Field
                           type="text"
                           value={values?.localLocation}
                           name="localLocation"
-                          className="w-full"
+                          className={`${styles.input} w-full`}
                         ></Field>
                         <ErrorMessage
                           component="div"

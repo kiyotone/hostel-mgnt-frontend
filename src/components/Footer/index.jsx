@@ -1,83 +1,52 @@
-import { Box, Flex, Link, HStack, IconButton, Text } from "@chakra-ui/react";
 import { FaFacebook, FaInstagram, FaTwitter } from "react-icons/fa";
 
 const Footer = () => {
   return (
-    <Box
-      className="rounded-t-[30px]"
-      as="footer"
-      bg="black"
-      color="white"
-      py={10}
-    >
-      <Flex
-        direction={{ base: "column", md: "row-reverse" }}
-        justify="space-between"
-        align="center"
-        px={8}
-        maxW="1080px"
-        mx="auto"
-      >
-        <HStack mb={{ base: 4, md: 0 }} spacing={4}>
-          <IconButton
-            as={Link}
+    <footer className="bg-black text-white py-10 rounded-t-[30px]">
+      <div className="flex flex-col md:flex-row-reverse justify-between px-12 max-w-[1280px]">
+        <div className="mb-4 md:mb-0 flex flex-row items-center justify-center gap-6">
+          <a
             target="_blank"
+            rel="noreferrer"
             href="https://www.facebook.com"
-            aria-label="Facebook"
-            icon={<FaFacebook />}
-            variant={"outline"}
-            _hover={""}
-            color="white"
-            fontSize="20px"
-          />
-          <IconButton
-            as={Link}
+            className="outline-1 text-[20px] text-white"
+          >
+            <FaFacebook />
+          </a>
+          <a
+            target="_blank"
+            rel="noreferrer"
             href="https://www.instagram.com"
-            aria-label="Instagram"
-            icon={<FaInstagram />}
-            variant={"outline"}
-            _hover={""}
-            color="white"
-            fontSize="20px"
-          />
-          <IconButton
-            as={Link}
+            className="outline-1 text-[20px] text-white"
+          >
+            <FaInstagram />
+          </a>
+          <a
+            target="_blank"
+            rel="noreferrer"
             href="https://www.twitter.com"
-            aria-label="Twitter"
-            icon={<FaTwitter />}
-            variant={"outline"}
-            _hover={""}
-            color="white"
-            fontSize="20px"
-          />
-        </HStack>
+            className="outline-1 text-[20px] text-white"
+          >
+            <FaTwitter />
+          </a>
+        </div>
         <div className="flex flex-col items-center justify-center gap-2">
           <p>Phone: +977-456-7890</p>
           <p>contact@nepalhostels.com</p>
         </div>
-        <Flex direction={"column"}>
-          <Text textAlign="center" fontSize={"xl"} mt={{ base: 4, md: 2 }}>
+        <div className="flex flex-col">
+          <p className="text-center text-xl mt-4 md:mt-2">
             &copy; Native Plug {new Date().getFullYear()}
-          </Text>
-          <Link
-            mt={1}
-            textAlign="center"
-            textDecoration={"underline"}
-            href="/privacy"
-          >
+          </p>
+          <a href="/privacy" className="text-center underline mt-1">
             Privacy Policy
-          </Link>
-          <Link
-            mt={1}
-            textAlign="center"
-            textDecoration={"underline"}
-            href="/terms"
-          >
+          </a>
+          <a href="/terms" className="text-center underline mt-1">
             Terms of Service
-          </Link>
-        </Flex>
-      </Flex>
-    </Box>
+          </a>
+        </div>
+      </div>
+    </footer>
   );
 };
 

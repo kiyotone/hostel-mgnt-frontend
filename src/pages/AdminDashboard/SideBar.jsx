@@ -64,7 +64,7 @@ const SideBar = () => {
               return (
                 <SideIcons
                   name={e.name}
-                  link={`${usetId}/${e.link}`}
+                  link={`/${usetId}/${e.link}`}
                   icon={e.icon}
                   key={e.name}
                 />

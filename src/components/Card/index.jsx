@@ -16,7 +16,7 @@ const Card = ({ name, location, rating = 3, noOfReviews = 0, id }) => {
   }
 
   return (
-    <main className="card sm:w-[20rem] w-[17rem] bg-white cursor-pointer shadow-lg rounded-md overflow-hidden">
+    <main className="card sm:w-[20rem] w-[17rem] bg-white cursor-pointer shadow-lg rounded-md overflow-hidden z-10">
       <img
         src="/hostel_image.jpeg"
         alt="Hostel"
@@ -40,7 +40,14 @@ const Card = ({ name, location, rating = 3, noOfReviews = 0, id }) => {
           {location}
         </p>
         <div className="flex justify-between mb-5">
-          <Button variant="contained">Book Now</Button>
+          <Button
+            variant="contained"
+            onClick={() => {
+              navigate(`/order/${id}`);
+            }}
+          >
+            Book Now
+          </Button>
           <button
             className="bg-gray-300 text-gray-700 px-4 py-2 rounded-md hover:bg-gray-400"
             onClick={() => navigate(`/hostels/${id}`)}

@@ -28,7 +28,7 @@ const HomeSwapper = () => {
   return (
     <Swiper
       // install Swiper modules
-      className="mt-10 pb-4"
+      className="mt-10 pb-4 z-10"
       modules={[Navigation, Pagination, Scrollbar, A11y]}
       spaceBetween={1}
       breakpoints={{
@@ -51,7 +51,7 @@ const HomeSwapper = () => {
           return (
             <SwiperSlide
               key={index}
-              className="flex items-center justify-around"
+              className="flex items-center justify-around z-10"
             >
               <Card
                 name={data?.name}

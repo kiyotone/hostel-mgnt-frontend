@@ -3,7 +3,7 @@ import { object, string } from "yup";
 import { addData } from "../../services/axios.service";
 import { errorToast, successToast } from "../../services/toastify.service";
 import { Link, useNavigate } from "react-router-dom";
-import "../../../src/form.css";
+import styles from "./signup.module.css";
 const SignUp = () => {
   const navigate = useNavigate();
 
@@ -58,9 +58,11 @@ const SignUp = () => {
                     type="text"
                     id="name"
                     name="name"
-                    className="w-full"
+                    className={`w-full ${styles.input}`}
                   ></Field>
-                  <label htmlFor="name">Name</label>
+                  <label className={`${styles.label}`} htmlFor="name">
+                    Name
+                  </label>
                   <ErrorMessage
                     component="div"
                     name="name"
@@ -73,9 +75,11 @@ const SignUp = () => {
                     type="email"
                     id="email"
                     name="email"
-                    className="w-full"
+                    className={`w-full ${styles.input}`}
                   ></Field>
-                  <label htmlFor="email">Email</label>
+                  <label className={`${styles.label}`} htmlFor="email">
+                    Email
+                  </label>
                   <ErrorMessage
                     component="div"
                     name="email"
@@ -88,9 +92,11 @@ const SignUp = () => {
                     type="password"
                     id="password"
                     name="password"
-                    className="w-full"
+                    className={`w-full ${styles.input}`}
                   ></Field>
-                  <label htmlFor="password">Password</label>
+                  <label className={`${styles.label}`} htmlFor="password">
+                    Password
+                  </label>
                   <ErrorMessage
                     component="div"
                     name="password"
@@ -104,9 +110,11 @@ const SignUp = () => {
                     type="text"
                     id="phone"
                     name="phone"
-                    className="w-full"
+                    className={`w-full ${styles.input}`}
                   ></Field>
-                  <label htmlFor="phone">Phone</label>
+                  <label className={`${styles.label}`} htmlFor="phone">
+                    Phone
+                  </label>
                   <ErrorMessage
                     component="div"
                     name="phone"

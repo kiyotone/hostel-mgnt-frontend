@@ -5,6 +5,8 @@ import { getDataWithoutHeader } from "../../services/axios.service";
 import { useEffect, useState } from "react";
 import WhyUs from "./Why Us";
 import LandingPage from "../../components/LandingPage";
+import SearchBar from "../../components/SearchBar";
+import Nearby from "../../components/Nearby";
 
 const Home = () => {
   const [accordions, setAccordions] = useState([]);
@@ -36,6 +38,7 @@ const Home = () => {
   return (
     <div className="bg-white text-black max-w-[1280px] mx-auto">
       <LandingPage />
+      <SearchBar />
       <div className="text-[2rem] mt-[3rem] font-semibold">
         <h1 className="text-3xl ms-[1rem]">Featured Hostels</h1>
       </div>
@@ -63,6 +66,7 @@ const Home = () => {
 
       <div>
         <WhyUs />
+        <Nearby />
         <Footer />
       </div>
     </div>

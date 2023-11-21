@@ -10,7 +10,8 @@ import ContactUs from "./pages/ContactUs";
 import SingleHostelPage from "./pages/SingleHostelPage";
 import AdminDashboard from "./pages/AdminDashboard";
 import HostelLocation from "./pages/AdminDashboard/HostelLocation";
-
+import BookForm from "./components/BookForm";
+import Search from "./pages/Search";
 function App() {
   return (
     <>
@@ -25,6 +26,8 @@ function App() {
           <Route path="/contact" element={<ContactUs />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/signin" element={<SignIn />} />
+          <Route path="/order/:id" element={<BookForm />} />
+          <Route path="/search/:keyword" element={<Search />} />
         </Route>
       </Routes>
     </>

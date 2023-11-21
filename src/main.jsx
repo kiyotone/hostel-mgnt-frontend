@@ -11,7 +11,6 @@ import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";
 import { GoogleOAuthProvider } from "@react-oauth/google";
-import { ChakraProvider } from "@chakra-ui/react";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
@@ -22,9 +21,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
             <GoogleOAuthProvider
               clientId={import.meta.env.VITE_GOOGLE_CLIENT_ID}
             >
-              <ChakraProvider>
-                <App />
-              </ChakraProvider>
+              <App />
 
               <ToastContainer />
             </GoogleOAuthProvider>

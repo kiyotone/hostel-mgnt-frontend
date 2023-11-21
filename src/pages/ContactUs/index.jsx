@@ -1,25 +1,35 @@
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import { object, string } from "yup";
 import Footer from "../../components/Footer";
-import "../../../src/form.css";
-import { getRooms } from "../../services/axios.service";
+import styles from "./contact.module.css";
+import { addData, getRooms } from "../../services/axios.service";
 import { useEffect } from "react";
+import { errorToast, successToast } from "../../services/toastify.service";
 
 const ContactUs = () => {
   const initialValue = {
     name: "",
     email: "",
-    message: "",
+    comment: "",
   };
 
   const validationSchema = object().shape({
     name: string().required("Name is required"),
     email: string().required("Email is required"),
-    message: string().required("Message is required"),
+    comment: string().required("Comment is required"),
   });
 
   const handleRegisterForm = async (values) => {
-    console.log(values);
+    const response = await addData("contactForm", values);
+    if (response.success) {
+      successToast(
+        response.message
+          ? response.message
+          : "Your message recorded successfully!"
+      );
+    } else {
+      errorToast("Unable to record your message!");
+    }
   };
 
   const getHostelRooms = async () => {
@@ -58,9 +68,11 @@ const ContactUs = () => {
                   placeholder=""
                   type="text"
                   name="name"
-                  className="w-full"
+                  className={`w-full ${styles.input}`}
                 ></Field>
-                <label htmlFor="name">Name</label>
+                <label className={`${styles.label}`} htmlFor="name">
+                  Name
+                </label>
                 <ErrorMessage
                   component="div"
                   name="name"
@@ -74,8 +86,11 @@ const ContactUs = () => {
                   type="email"
                   id="email"
                   name="email"
+                  className={`w-full ${styles.input}`}
                 ></Field>
-                <label htmlFor="email">Email</label>
+                <label className={`${styles.label}`} htmlFor="email">
+                  Email
+                </label>
                 <ErrorMessage
                   name="email"
                   component="div"
@@ -89,20 +104,20 @@ const ContactUs = () => {
                   rows="5"
                   placeholder="Your Message"
                   type="text"
-                  name="message"
-                  id="message"
+                  name="comment"
+                  id="comment"
                   className="w-full border-[#ccc] border-2 rounded-md p-3 mt-2"
                 ></Field>
                 <ErrorMessage
                   component="div"
-                  name="message"
+                  name="comment"
                   className="text-red-500 absolute text-xs bottom-[-20px]"
                 />
               </div>
 
               <button
                 type="submit"
-                className="bg-blue-500 hover:bg-blue-600 px-3 py-2 text-lg text-white fw-fw-bolder w-full rounded-md text-cente my-4"
+                className="bg-blue-500 hover:bg-blue-600 px-3 py-2 text-lg text-white fw-fw-bolder w-full rounded-md text-center my-4"
               >
                 {"Send Message"}
               </button>

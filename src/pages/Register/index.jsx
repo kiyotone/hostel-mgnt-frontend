@@ -1,6 +1,6 @@
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import { object, string } from "yup";
-import "../../../src/form.css";
+import styles from "./register.module.css";
 
 const SignUp = () => {
   const initialValue = {
@@ -43,9 +43,11 @@ const SignUp = () => {
                 placeholder=""
                 type="text"
                 name="name"
-                className="w-full"
+                className={`w-full ${styles.input}`}
               ></Field>
-              <label htmlFor="name">Name</label>
+              <label htmlFor="name" className={`${styles.label}`}>
+                Name
+              </label>
               <ErrorMessage
                 component="div"
                 name="name"
@@ -53,8 +55,15 @@ const SignUp = () => {
               />
             </div>
             <div className="mb-4 relative">
-              <Field placeholder="" type="text" name="hostelName"></Field>
-              <label htmlFor="hostelName">Hostel Name</label>
+              <Field
+                placeholder=""
+                type="text"
+                name="hostelName"
+                className={`w-full ${styles.input}`}
+              ></Field>
+              <label htmlFor="hostelName" className={`${styles.label}`}>
+                Hostel Name
+              </label>
               <ErrorMessage
                 component="div"
                 name="hostelName"
@@ -66,9 +75,11 @@ const SignUp = () => {
                 placeholder=""
                 type="text"
                 name="city"
-                className="input"
+                className={`w-full ${styles.input}`}
               ></Field>
-              <label htmlFor="city">City</label>
+              <label htmlFor="city" className={`${styles.label}`}>
+                City
+              </label>
               <ErrorMessage
                 component="div"
                 name="city"
@@ -76,8 +87,16 @@ const SignUp = () => {
               />
             </div>
             <div className="mb-4 relative">
-              <Field placeholder="" type="text" id="phone" name="phone"></Field>
-              <label htmlFor="phone">Phone</label>
+              <Field
+                placeholder=""
+                type="text"
+                id="phone"
+                name="phone"
+                className={`w-full ${styles.input}`}
+              ></Field>
+              <label htmlFor="phone" className={`${styles.label}`}>
+                Phone
+              </label>
               <ErrorMessage
                 name="phone"
                 component="div"
@@ -90,8 +109,11 @@ const SignUp = () => {
                 type="email"
                 id="email"
                 name="email"
+                className={`w-full ${styles.input}`}
               ></Field>
-              <label htmlFor="email">Email</label>
+              <label htmlFor="email" className={`${styles.label}`}>
+                Email
+              </label>
               <ErrorMessage
                 name="email"
                 component="div"
@@ -104,8 +126,11 @@ const SignUp = () => {
                 type="password"
                 id="password"
                 name="password"
+                className={`w-full ${styles.input}`}
               ></Field>
-              <label htmlFor="password">Password</label>
+              <label htmlFor="password" className={`${styles.label}`}>
+                Password
+              </label>
               <ErrorMessage
                 name="password"
                 component="div"
