@@ -1,71 +1,83 @@
+import { Box, Flex, Link, HStack, IconButton, Text } from "@chakra-ui/react";
 import { FaFacebook, FaInstagram, FaTwitter } from "react-icons/fa";
 
 const Footer = () => {
   return (
-    <footer className="bg-black py-8 text-white w-full rounded-t-[30px]">
-      <div className="container mx-auto max-w-[1280px]">
-        <div className="flex items-center justify-evenly gap-3 flex-col sm:flex-row">
-          <div className="flex items-center justify-center flex-col w-full sm:border-r border-white h-full sm:py-1">
-            <h2 className="text-xl font-semibold mb-2">Legal</h2>
-            <ul className="text-base flex items-center justify-center flex-col">
-              <li>
-                <a href="/terms" className="hover:text-gray-300">
-                  Terms of Service
-                </a>
-              </li>
-              <li>
-                <a href="/privacy" className="hover:text-gray-300">
-                  Privacy Policy
-                </a>
-              </li>
-            </ul>
-          </div>
-          <div className="flex flex-col items-center justify-center w-full sm:border-r border-white sm:py-4">
-            <h2 className="text-xl font-semibold mb-4">Connect With Us</h2>
-            <ul className="text-base flex items-center md:justify-evenly justify-center gap-3">
-              <li>
-                <a
-                  href="https://www.facebook.com"
-                  rel="noreferrer"
-                  target="_blank"
-                  className="hover:text-gray-300"
-                >
-                  <FaFacebook size={24} />
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://www.twitter.com"
-                  rel="noreferrer"
-                  target="_blank"
-                  className="hover:text-gray-300"
-                >
-                  <FaTwitter size={24} />
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://www.instagram.com"
-                  rel="noreferrer"
-                  target="_blank"
-                  className="hover:text-gray-300"
-                >
-                  <FaInstagram size={24} />
-                </a>
-              </li>
-            </ul>
-          </div>
-          <div className="flex items-center justify-center flex-col w-full">
-            <h2 className="text-xl font-semibold mb-2">Contact Us</h2>
-            <p>Email: </p> <p>contact@nepalhostels.com</p>
-            <p>Phone: +977-456-7890</p>
-          </div>
+    <Box
+      className="rounded-t-[30px]"
+      as="footer"
+      bg="black"
+      color="white"
+      py={10}
+    >
+      <Flex
+        direction={{ base: "column", md: "row-reverse" }}
+        justify="space-between"
+        align="center"
+        px={8}
+        maxW="1080px"
+        mx="auto"
+      >
+        <HStack mb={{ base: 4, md: 0 }} spacing={4}>
+          <IconButton
+            as={Link}
+            target="_blank"
+            href="https://www.facebook.com"
+            aria-label="Facebook"
+            icon={<FaFacebook />}
+            variant={"outline"}
+            _hover={""}
+            color="white"
+            fontSize="20px"
+          />
+          <IconButton
+            as={Link}
+            href="https://www.instagram.com"
+            aria-label="Instagram"
+            icon={<FaInstagram />}
+            variant={"outline"}
+            _hover={""}
+            color="white"
+            fontSize="20px"
+          />
+          <IconButton
+            as={Link}
+            href="https://www.twitter.com"
+            aria-label="Twitter"
+            icon={<FaTwitter />}
+            variant={"outline"}
+            _hover={""}
+            color="white"
+            fontSize="20px"
+          />
+        </HStack>
+        <div className="flex flex-col items-center justify-center gap-2">
+          <p>Phone: +977-456-7890</p>
+          <p>contact@nepalhostels.com</p>
         </div>
-        <p className="pt-2 sm:ml-[6vw] text-gray-300 text-center sm:text-left">
-          &copy; {new Date().getFullYear()} All rights reserved.
-        </p>
-      </div>
-    </footer>
+        <Flex direction={"column"}>
+          <Text textAlign="center" fontSize={"xl"} mt={{ base: 4, md: 2 }}>
+            &copy; Native Plug {new Date().getFullYear()}
+          </Text>
+          <Link
+            mt={1}
+            textAlign="center"
+            textDecoration={"underline"}
+            href="/privacy"
+          >
+            Privacy Policy
+          </Link>
+          <Link
+            mt={1}
+            textAlign="center"
+            textDecoration={"underline"}
+            href="/terms"
+          >
+            Terms of Service
+          </Link>
+        </Flex>
+      </Flex>
+    </Box>
   );
 };
 

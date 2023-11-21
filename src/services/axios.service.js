@@ -80,3 +80,12 @@ export const getDataWithBody = async (url, body) => {
     console.log(error);
   }
 };
+
+export const getRooms = async (url) => {
+  try {
+    const response = await axios.post(`${serverUrl}/${url}`);
+    return response.data;
+  } catch (error) {
+    console.log(error);
+  }
+};
